@@ -69,7 +69,7 @@ import json
 from pathlib import Path
 import sys
 import time
-from typing import Iterable, TextIO
+from typing import Iterable, NoReturn, TextIO
 
 
 NUM_ALLOWED = 255
@@ -190,7 +190,7 @@ def audit_write(audit: TextIO | None, message: str = "") -> None:
         audit.write(f"{message}\n")
 
 
-def fatal(audit: TextIO | None, messages: Iterable[str], exit_code: int = 1) -> None:
+def fatal(audit: TextIO | None, messages: Iterable[str], exit_code: int = 1) -> NoReturn:
     materialized = list(messages)
     if audit is not None:
         for message in materialized:
