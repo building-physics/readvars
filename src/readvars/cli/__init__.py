@@ -53,8 +53,9 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-from readvars.__about__ import __version__
-from readvars import readvarseso
+from readvars.process import readvarseso
 
-def readvars():
+
+def readvars() -> None:
+    """Run the ReadVarsESO-compatible command-line interface."""
     readvarseso()

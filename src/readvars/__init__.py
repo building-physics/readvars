@@ -53,4 +53,24 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-from .process import readvarseso
+"""Read and convert EnergyPlus ESO and MTR output files."""
+
+from .__about__ import __version__
+from .process import (
+    DictionaryRecord,
+    ReadVarsFatal,
+    convert,
+    list_variables,
+    readvarseso,
+    run,
+)
+
+__all__ = [
+    "DictionaryRecord",
+    "ReadVarsFatal",
+    "__version__",
+    "convert",
+    "list_variables",
+    "readvarseso",
+    "run",
+]

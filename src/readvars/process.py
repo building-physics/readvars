@@ -115,6 +115,8 @@ MODERN_COMMAND_ALIASES = {
     "--read": "read",
 }
 
+MODERN_FREQUENCIES = frozenset(MODERN_FREQUENCY_ALIASES)
+
 MONTHS = [
     "January",
     "February",
@@ -190,10 +192,11 @@ def audit_write(audit: TextIO | None, message: str = "") -> None:
 
 def fatal(audit: TextIO | None, messages: Iterable[str], exit_code: int = 1) -> None:
     materialized = list(messages)
-    for message in materialized:
-        display_string(message)
-        audit_write(audit, message)
-    raise ReadVarsFatal([], exit_code)
+    if audit is not None:
+        for message in materialized:
+            display_string(message)
+            audit_write(audit, message)
+    raise ReadVarsFatal(materialized, exit_code)
 
 
 def parse_options(argv: list[str]) -> Options:
@@ -356,7 +359,10 @@ def normalize_variable_request(line: str) -> str:
     temp_var = line.lstrip()
     comma_position = temp_var.find(",")
     if comma_position != -1:
-        return temp_var[: comma_position + 1].rstrip() + temp_var[comma_position + 1 :].lstrip()
+        return (
+            temp_var[: comma_position + 1].rstrip()
+            + temp_var[comma_position + 1 :].lstrip()
+        ).rstrip()
 
     return temp_var.strip()
 
@@ -850,6 +856,34 @@ def filter_modern_records(
     return [record for record in filtered if record_matches_search(record, search)]
 
 
+def _validate_modern_frequency(frequency: str | None) -> str | None:
+    """Normalize and validate a frequency accepted by the public API."""
+    if frequency is None:
+        return None
+
+    normalized = frequency.strip().lower()
+    if normalized not in MODERN_FREQUENCIES:
+        choices = ", ".join(sorted(MODERN_FREQUENCIES))
+        raise ValueError(f"Unknown frequency {frequency!r}; expected one of: {choices}")
+    return normalized
+
+
+def list_variables(
+    input_file: str | Path,
+    *,
+    frequency: str | None = None,
+    search: str | None = None,
+) -> list[DictionaryRecord]:
+    """Return report-variable definitions from an EnergyPlus ESO or MTR file.
+
+    Timestamp dictionary records used internally by EnergyPlus are omitted.
+    ``frequency`` accepts the same names as the modern command-line interface.
+    """
+    normalized_frequency = _validate_modern_frequency(frequency)
+    records = records_for_modern_cli(str(input_file))
+    return filter_modern_records(records, normalized_frequency, search)
+
+
 def default_modern_output_file(input_file: str) -> Path:
     return Path(input_file).with_suffix(".csv")
 
@@ -894,6 +928,23 @@ def convert_modern_read(
         ) from err
 
     return output_path
+
+
+def convert(
+    input_file: str | Path,
+    output_file: str | Path | None = None,
+    *,
+    frequency: str | None = None,
+    search: str | None = None,
+) -> Path:
+    """Convert an ESO or MTR file to CSV and return its path."""
+    normalized_frequency = _validate_modern_frequency(frequency)
+    return convert_modern_read(
+        str(input_file),
+        None if output_file is None else str(output_file),
+        normalized_frequency,
+        search,
+    )
 
 
 def truncate_for_table(value: object, width: int) -> str:

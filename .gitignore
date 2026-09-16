@@ -1,0 +1,13 @@
+/.coverage
+/.pytest_cache/
+/.test-tmp/
+/.build-tmp/
+/\.hatch-data/
+/build-check/
+/tests/.runtime/
+/test-runtime/
+/build/
+/dist/
+*.egg-info/
+__pycache__/
+*.py[cod]

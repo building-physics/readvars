@@ -8,6 +8,7 @@ dynamic = ["version"]
 description = 'Read and process EnergyPlus ESO files'
 readme = "README.md"
 requires-python = ">=3.8"
+license = { file = "LICENSE.txt" }
 keywords = []
 authors = [
   { name = "Jason W. DeGraw", email = "jason.degraw@gmail.com" },
@@ -25,16 +26,35 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+test = [
+  "pytest>=7",
+  "pytest-cov>=4",
+]
+
 [project.urls]
-Documentation = "https://github.com/building-physics/readvars#readme"
+Documentation = "https://github.com/Jason W. DeGraw/readvars#readme"
 Issues = "https://github.com/Jason W. DeGraw/readvars/issues"
 Source = "https://github.com/Jason W. DeGraw/readvars"
 
 [project.scripts]
 readvars = "readvars.cli:readvars"
+ReadVarsESO = "readvars.cli:readvars"
 
 [tool.hatch.version]
 path = "src/readvars/__about__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/readvars"]
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest>=7",
+  "pytest-cov>=4",
+]
+
+[tool.hatch.envs.test.scripts]
+run = "pytest {args:tests}"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
@@ -61,3 +81,8 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config"
+pythonpath = ["src"]
+testpaths = ["tests"]
