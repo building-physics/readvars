@@ -54,6 +54,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 from readvars.__about__ import __version__
+from readvars import readvarseso
 
 def readvars():
-    print("Hello world!")
+    readvarseso()

@@ -53,9 +53,7 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-import sys
-
 if __name__ == "__main__":
-    from readvars.cli import readvars
+    from .process import readvarseso
 
-    sys.exit(readvars())
+    readvarseso()
