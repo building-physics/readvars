@@ -91,6 +91,29 @@ The integration tests exercise modern conversion and the legacy RVI path
 against an EnergyPlus ESO fixture; unit tests cover parsing, filtering, and
 time aggregation behavior.
 
+### Gold-file regression tests
+
+Regression cases are pairs of files under `tests/data` with the same stem and
+`.rvi`/`.eso` extensions. Pytest runs the Python port in an isolated directory
+and compares its output byte-for-byte with the corresponding stored output
+under `tests/gold`:
+
+```console
+hatch run test:run -m regression
+```
+
+The normal test suite does not require an EnergyPlus installation. Gold files
+are updated separately and deliberately using a legacy executable. For example,
+to regenerate them from EnergyPlus 26.1:
+
+```console
+hatch run python scripts/generate_gold.py \
+  C:\EnergyPlus-26.1.0\PostProcess\ReadVarsESO.exe
+```
+
+Pass one or more fixture stems after the executable to regenerate only selected
+cases. Gold-file changes should be reviewed before they are committed.
+
 ## License
 
 `readvars` is distributed under the EnergyPlus license in

@@ -1297,7 +1297,9 @@ def run(argv: list[str]) -> int:
         input_file_name, output_file_name, separator, get_vars_from_eso, rvi_lines = read_rvi_configuration(options, audit)
 
         try:
-            output = Path(output_file_name).open("w", encoding="utf-8", newline="")
+            # Use the platform newline for byte-level compatibility with the
+            # native ReadVarsESO executable (CRLF on Windows, LF elsewhere).
+            output = Path(output_file_name).open("w", encoding="utf-8")
         except OSError:
             fatal(
                 audit,

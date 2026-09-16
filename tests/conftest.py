@@ -8,6 +8,13 @@ import uuid
 import pytest
 
 
+def pytest_configure(config: pytest.Config) -> None:
+    config.addinivalue_line(
+        "markers",
+        "regression: compares package output byte-for-byte with stored gold output",
+    )
+
+
 @pytest.fixture
 def tmp_path() -> Iterator[Path]:
     """Provide a writable temp path on hosts with locked global temp ACLs."""

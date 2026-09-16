@@ -1,4 +1,5 @@
 /.coverage
+/.regression/
 /.pytest_cache/
 /.test-tmp/
 /.build-tmp/
