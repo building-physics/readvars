@@ -172,6 +172,15 @@ class SelectedVariable:
 
 class ReadVarsFatal(Exception):
     def __init__(self, messages: Iterable[str], exit_code: int = 1):
+        """Initialize a fatal ReadVars error.
+
+        Parameters
+        ----------
+        messages : Iterable[str]
+            Diagnostic messages associated with the failure.
+        exit_code : int, default=1
+            Process exit status to return to the caller.
+        """
         self.messages = list(messages)
         self.exit_code = exit_code
         super().__init__("\n".join(self.messages))
@@ -182,15 +191,47 @@ class EarlyExit(Exception):
 
 
 def display_string(message: str) -> None:
+    """Write a status message to standard output.
+
+    Parameters
+    ----------
+    message : str
+        Message to display.
+    """
     print(message)
 
 
 def audit_write(audit: TextIO | None, message: str = "") -> None:
+    """Write a line to an audit stream when one is available.
+
+    Parameters
+    ----------
+    audit : TextIO or None
+        Open audit stream, or ``None`` to suppress the message.
+    message : str, default=""
+        Message to write.
+    """
     if audit is not None:
         audit.write(f"{message}\n")
 
 
 def fatal(audit: TextIO | None, messages: Iterable[str], exit_code: int = 1) -> NoReturn:
+    """Record diagnostics and terminate the current conversion.
+
+    Parameters
+    ----------
+    audit : TextIO or None
+        Open legacy audit stream, if applicable.
+    messages : Iterable[str]
+        Diagnostic messages describing the failure.
+    exit_code : int, default=1
+        Process exit status associated with the failure.
+
+    Raises
+    ------
+    ReadVarsFatal
+        Always raised after the diagnostics are recorded.
+    """
     materialized = list(messages)
     if audit is not None:
         for message in materialized:
@@ -200,6 +241,18 @@ def fatal(audit: TextIO | None, messages: Iterable[str], exit_code: int = 1) -> 
 
 
 def parse_options(argv: list[str]) -> Options:
+    """Parse legacy ReadVarsESO positional options.
+
+    Parameters
+    ----------
+    argv : list[str]
+        Legacy command-line arguments.
+
+    Returns
+    -------
+    Options
+        Parsed RVI name, frequency, limit, and header settings.
+    """
     if not argv:
         return Options("", True, 0, True, False)
 
@@ -230,6 +283,18 @@ def parse_options(argv: list[str]) -> Options:
 
 
 def is_modern_cli(argv: list[str]) -> bool:
+    """Determine whether arguments select the modern command interface.
+
+    Parameters
+    ----------
+    argv : list[str]
+        Command-line arguments.
+
+    Returns
+    -------
+    bool
+        ``True`` when the first argument is a modern command or help flag.
+    """
     if not argv:
         return False
 
@@ -238,6 +303,18 @@ def is_modern_cli(argv: list[str]) -> bool:
 
 
 def normalized_modern_args(argv: list[str]) -> list[str]:
+    """Replace modern command aliases with their canonical names.
+
+    Parameters
+    ----------
+    argv : list[str]
+        Command-line arguments.
+
+    Returns
+    -------
+    list[str]
+        Arguments with any leading command alias normalized.
+    """
     if not argv:
         return argv
 
@@ -250,6 +327,13 @@ def normalized_modern_args(argv: list[str]) -> list[str]:
 
 
 def build_modern_parser() -> argparse.ArgumentParser:
+    """Construct the parser for modern ``list`` and ``read`` commands.
+
+    Returns
+    -------
+    argparse.ArgumentParser
+        Configured command-line parser.
+    """
     parser = argparse.ArgumentParser(
         prog="ReadVarsESO",
         description="Convert EnergyPlus ESO/MTR files or inspect their available output variables.",
@@ -306,11 +390,37 @@ def build_modern_parser() -> argparse.ArgumentParser:
 
 
 def read_lines(path: Path) -> list[str]:
+    """Read a text file into newline-free strings.
+
+    Parameters
+    ----------
+    path : pathlib.Path
+        File to read.
+
+    Returns
+    -------
+    list[str]
+        Decoded lines without line terminators.
+    """
     with path.open("r", encoding="utf-8-sig", errors="replace") as handle:
         return [line.rstrip("\r\n") for line in handle]
 
 
 def strip_comment_for_file_name(line: str, audit: TextIO | None) -> str | None:
+    """Remove RVI comments from a file-name line.
+
+    Parameters
+    ----------
+    line : str
+        Raw RVI line.
+    audit : TextIO or None
+        Audit stream used to record ignored or stripped comments.
+
+    Returns
+    -------
+    str or None
+        Cleaned value, or ``None`` when the entire line is a comment.
+    """
     line = line.lstrip()
     if line.startswith("!"):
         audit_write(audit, f" ignoring comment line={line.rstrip()}")
@@ -327,6 +437,18 @@ def strip_comment_for_file_name(line: str, audit: TextIO | None) -> str | None:
 
 
 def separator_for_output(output_file_name: str) -> str:
+    """Choose the legacy delimiter from an output-file extension.
+
+    Parameters
+    ----------
+    output_file_name : str
+        Requested output path.
+
+    Returns
+    -------
+    str
+        Tab for ``.tab``, space for ``.txt``, otherwise comma.
+    """
     suffix = Path(output_file_name.strip()).suffix.lower()
     if suffix == ".tab":
         return "\t"
@@ -336,6 +458,18 @@ def separator_for_output(output_file_name: str) -> str:
 
 
 def process_number(text: str) -> float:
+    """Parse the leading numeric token used in an RVI request.
+
+    Parameters
+    ----------
+    text : str
+        Candidate numeric text.
+
+    Returns
+    -------
+    float
+        Parsed value, or ``-999.0`` when no valid number is present.
+    """
     valid_first = "0123456789.+-\t"
     if not text or text[0] not in valid_first:
         return -999.0
@@ -352,6 +486,18 @@ def process_number(text: str) -> float:
 
 
 def normalize_variable_request(line: str) -> str:
+    """Normalize spacing and remove units from a named variable request.
+
+    Parameters
+    ----------
+    line : str
+        Raw variable request.
+
+    Returns
+    -------
+    str
+        Normalized request text.
+    """
     bracket_position = line.find("[")
     if bracket_position != -1:
         line = line[:bracket_position]
@@ -368,6 +514,20 @@ def normalize_variable_request(line: str) -> str:
 
 
 def parse_rvi_variable_requests(lines: list[str], audit: TextIO | None) -> Requests:
+    """Parse variable selections and exclusions from RVI content.
+
+    Parameters
+    ----------
+    lines : list[str]
+        RVI lines following the input and output file names.
+    audit : TextIO or None
+        Legacy audit stream.
+
+    Returns
+    -------
+    Requests
+        Numeric and named variable requests and exclusions.
+    """
     requests = Requests([], [], [], [], [])
     done = False
 
@@ -420,6 +580,26 @@ def parse_rvi_variable_requests(lines: list[str], audit: TextIO | None) -> Reque
 
 
 def read_rvi_configuration(options: Options, audit: TextIO | None) -> tuple[str, str, str, bool, list[str]]:
+    """Resolve input, output, delimiter, and requests for a legacy run.
+
+    Parameters
+    ----------
+    options : Options
+        Parsed legacy command options.
+    audit : TextIO or None
+        Legacy audit stream.
+
+    Returns
+    -------
+    tuple[str, str, str, bool, list[str]]
+        Input name, output name, delimiter, all-variable flag, and request
+        lines.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If a requested RVI or ESO file does not exist.
+    """
     if options.get_vars_from_eso:
         input_file_name = "eplusout.eso"
         if not Path(input_file_name).is_file():
@@ -509,6 +689,18 @@ def read_rvi_configuration(options: Options, audit: TextIO | None) -> tuple[str,
 
 
 def parse_report_number(line: str) -> int | None:
+    """Parse the report number at the start of an ESO line.
+
+    Parameters
+    ----------
+    line : str
+        ESO dictionary or data line.
+
+    Returns
+    -------
+    int or None
+        Parsed report number, or ``None`` when it is unavailable.
+    """
     comma_position = line.find(",")
     if comma_position == -1:
         return None
@@ -520,6 +712,18 @@ def parse_report_number(line: str) -> int | None:
 
 
 def build_header_label(line: str) -> str:
+    """Build a legacy output-column label from a dictionary line.
+
+    Parameters
+    ----------
+    line : str
+        ESO data-dictionary line.
+
+    Returns
+    -------
+    str
+        Formatted key, variable, units, and frequency label.
+    """
     fields = line.split(",", 2)
     if len(fields) < 3:
         return ""
@@ -548,6 +752,18 @@ def build_header_label(line: str) -> str:
 
 
 def split_variable_units(variable_with_units: str) -> tuple[str, str]:
+    """Split a variable description into its name and bracketed units.
+
+    Parameters
+    ----------
+    variable_with_units : str
+        Variable description that may end with units in brackets.
+
+    Returns
+    -------
+    tuple[str, str]
+        Variable name and units, with an empty unit string when absent.
+    """
     variable_with_units = variable_with_units.strip()
     close_position = variable_with_units.rfind("]")
     open_position = variable_with_units.rfind("[", 0, close_position)
@@ -560,6 +776,18 @@ def split_variable_units(variable_with_units: str) -> tuple[str, str]:
 
 
 def normalized_frequency(raw_frequency: str) -> str:
+    """Remove schedule and qualifier suffixes from a frequency label.
+
+    Parameters
+    ----------
+    raw_frequency : str
+        Frequency text from an ESO dictionary line.
+
+    Returns
+    -------
+    str
+        Base reporting frequency.
+    """
     raw_frequency = raw_frequency.strip()
     bracket_position = raw_frequency.find("[")
     if bracket_position != -1:
@@ -573,6 +801,18 @@ def normalized_frequency(raw_frequency: str) -> str:
 
 
 def parse_dictionary_record(line: str) -> DictionaryRecord | None:
+    """Parse one report-variable entry from an ESO data dictionary.
+
+    Parameters
+    ----------
+    line : str
+        Candidate dictionary line.
+
+    Returns
+    -------
+    DictionaryRecord or None
+        Parsed record, or ``None`` for non-variable and timestamp records.
+    """
     number = parse_report_number(line)
     if number is None or number <= 5:
         return None
@@ -612,6 +852,25 @@ def parse_dictionary_record(line: str) -> DictionaryRecord | None:
 
 
 def dictionary_records(eso_lines: list[str], audit: TextIO | None) -> tuple[list[DictionaryRecord], int]:
+    """Extract report-variable records and locate the dictionary terminator.
+
+    Parameters
+    ----------
+    eso_lines : list[str]
+        Complete ESO file content.
+    audit : TextIO or None
+        Legacy audit stream.
+
+    Returns
+    -------
+    tuple[list[DictionaryRecord], int]
+        Parsed variable records and the index of ``End of Data Dictionary``.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If the data-dictionary terminator is missing.
+    """
     end_index = None
     for index, line in enumerate(eso_lines):
         if line.strip() == "End of Data Dictionary":
@@ -638,11 +897,39 @@ def dictionary_records(eso_lines: list[str], audit: TextIO | None) -> tuple[list
 
 
 def is_allowed_frequency(line: str, frequency: int) -> bool:
+    """Check a dictionary line against a legacy frequency filter.
+
+    Parameters
+    ----------
+    line : str
+        ESO dictionary line.
+    frequency : int
+        Legacy numeric frequency selector, or zero for all frequencies.
+
+    Returns
+    -------
+    bool
+        Whether the line satisfies the requested frequency.
+    """
     marker = FREQUENCY_MARKERS.get(frequency)
     return marker is None or marker in line
 
 
 def record_matches_modern_frequency(record: DictionaryRecord, frequency_alias: str | None) -> bool:
+    """Check a dictionary record against a modern frequency alias.
+
+    Parameters
+    ----------
+    record : DictionaryRecord
+        Record to inspect.
+    frequency_alias : str or None
+        Validated frequency alias, or ``None`` for no filtering.
+
+    Returns
+    -------
+    bool
+        Whether the record matches the alias.
+    """
     if not frequency_alias:
         return True
 
@@ -651,12 +938,40 @@ def record_matches_modern_frequency(record: DictionaryRecord, frequency_alias: s
 
 
 def myindex(text: str, substring: str) -> int:
+    """Find a substring without regard to case.
+
+    Parameters
+    ----------
+    text : str
+        Text to search.
+    substring : str
+        Text to locate.
+
+    Returns
+    -------
+    int
+        Zero-based match position, or ``-1`` when no match exists.
+    """
     if not substring:
         return -1
     return text.upper().find(substring.upper())
 
 
 def is_ignored(record: DictionaryRecord, requests: Requests) -> bool:
+    """Determine whether a record is excluded by legacy requests.
+
+    Parameters
+    ----------
+    record : DictionaryRecord
+        Dictionary record to inspect.
+    requests : Requests
+        Parsed numeric and named exclusions.
+
+    Returns
+    -------
+    bool
+        Whether the record should be ignored.
+    """
     if record.number in requests.ignore_numbers:
         return True
 
@@ -668,6 +983,22 @@ def is_ignored(record: DictionaryRecord, requests: Requests) -> bool:
 
 
 def request_matches_dictionary_line(line: str, request: str, exact: bool) -> bool:
+    """Match a named request against an ESO dictionary line.
+
+    Parameters
+    ----------
+    line : str
+        ESO dictionary line.
+    request : str
+        Normalized variable request.
+    exact : bool
+        Require an exact variable-name match when ``True``.
+
+    Returns
+    -------
+    bool
+        Whether the request matches the line.
+    """
     request = request.strip()
     position = myindex(line, request)
     if position == -1:
@@ -693,6 +1024,15 @@ def request_matches_dictionary_line(line: str, request: str, exact: bool) -> boo
 
 
 def warn_too_many_variables(audit: TextIO | None, limit: int = NUM_ALLOWED) -> None:
+    """Report that a legacy variable selection was truncated.
+
+    Parameters
+    ----------
+    audit : TextIO or None
+        Legacy audit stream.
+    limit : int, default=NUM_ALLOWED
+        Maximum number of selected variables.
+    """
     message = f"too many variables requested, will go with first {limit}"
     display_string(message)
     audit_write(audit, message)
@@ -703,6 +1043,22 @@ def selected_with_limit(
     limited: bool,
     audit: TextIO | None,
 ) -> list[SelectedVariable]:
+    """Apply legacy variable-count limits and warnings.
+
+    Parameters
+    ----------
+    selected : list[SelectedVariable]
+        Selected variables in output order.
+    limited : bool
+        Enforce the historical variable-count limit when ``True``.
+    audit : TextIO or None
+        Legacy audit stream.
+
+    Returns
+    -------
+    list[SelectedVariable]
+        Original or truncated selection.
+    """
     if limited and len(selected) > NUM_ALLOWED:
         warn_too_many_variables(audit)
         return selected[:NUM_ALLOWED]
@@ -725,6 +1081,22 @@ def stage_named_variables(
     requests: Requests,
     numeric_track_numbers: set[int],
 ) -> list[DictionaryRecord]:
+    """Collect dictionary records matched by named requests.
+
+    Parameters
+    ----------
+    records : list[DictionaryRecord]
+        Candidate dictionary records.
+    requests : Requests
+        Parsed named requests and their processing state.
+    numeric_track_numbers : set[int]
+        Report numbers already selected explicitly.
+
+    Returns
+    -------
+    list[DictionaryRecord]
+        Unique records matched in exact-then-partial order.
+    """
     staged: list[DictionaryRecord] = []
     staged_numbers: set[int] = set()
 
@@ -758,6 +1130,15 @@ def append_selected(
     selected: list[SelectedVariable],
     record: DictionaryRecord,
 ) -> None:
+    """Append a found dictionary record to a selection.
+
+    Parameters
+    ----------
+    selected : list[SelectedVariable]
+        Selection to mutate.
+    record : DictionaryRecord
+        Matched record to append.
+    """
     selected.append(SelectedVariable(record.number, record.label, True))
 
 
@@ -769,6 +1150,28 @@ def select_variables(
     limited: bool,
     audit: TextIO | None,
 ) -> list[SelectedVariable]:
+    """Resolve legacy numeric and named requests into output columns.
+
+    Parameters
+    ----------
+    records : list[DictionaryRecord]
+        Available ESO dictionary records.
+    requests : Requests
+        Parsed inclusions and exclusions.
+    get_vars_from_eso : bool
+        Select every eligible dictionary record when ``True``.
+    frequency : int
+        Legacy numeric frequency selector.
+    limited : bool
+        Enforce the historical variable-count limit.
+    audit : TextIO or None
+        Legacy audit stream.
+
+    Returns
+    -------
+    list[SelectedVariable]
+        Selected variables in output-column order.
+    """
     allowed_records = [
         record
         for record in records
@@ -813,6 +1216,20 @@ def select_variables(
 
 
 def record_matches_search(record: DictionaryRecord, search_text: str | None) -> bool:
+    """Check whether a record contains modern free-text search terms.
+
+    Parameters
+    ----------
+    record : DictionaryRecord
+        Record to search.
+    search_text : str or None
+        Case-insensitive text filter, or ``None`` to match all records.
+
+    Returns
+    -------
+    bool
+        Whether any searchable record field contains the text.
+    """
     if not search_text:
         return True
 
@@ -830,11 +1247,40 @@ def record_matches_search(record: DictionaryRecord, search_text: str | None) -> 
 
 
 def is_dictionary_time_stamp_record(record: DictionaryRecord) -> bool:
+    """Identify an internal ESO timestamp dictionary record.
+
+    Parameters
+    ----------
+    record : DictionaryRecord
+        Dictionary record to inspect.
+
+    Returns
+    -------
+    bool
+        Whether the frequency describes a conditional timestamp record.
+    """
     raw_frequency = record.raw_frequency.strip().upper()
     return raw_frequency.startswith("WHEN ") and raw_frequency.endswith("REQUESTED")
 
 
 def records_for_modern_cli(input_file: str) -> list[DictionaryRecord]:
+    """Load user-facing dictionary records for the modern interface.
+
+    Parameters
+    ----------
+    input_file : str
+        ESO or MTR input path.
+
+    Returns
+    -------
+    list[DictionaryRecord]
+        Variable records with internal timestamp entries removed.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If the input does not exist or has an invalid dictionary.
+    """
     input_path = Path(input_file)
     if not input_path.is_file():
         raise ReadVarsFatal([f"Input file does not exist: {input_file}"])
@@ -848,6 +1294,22 @@ def filter_modern_records(
     frequency: str | None,
     search: str | None,
 ) -> list[DictionaryRecord]:
+    """Apply modern frequency and text filters to dictionary records.
+
+    Parameters
+    ----------
+    records : list[DictionaryRecord]
+        Records to filter.
+    frequency : str or None
+        Validated reporting-frequency alias.
+    search : str or None
+        Case-insensitive free-text filter.
+
+    Returns
+    -------
+    list[DictionaryRecord]
+        Records satisfying all requested filters.
+    """
     filtered = [record for record in records if not is_dictionary_time_stamp_record(record)]
 
     if frequency:
@@ -857,7 +1319,23 @@ def filter_modern_records(
 
 
 def _validate_modern_frequency(frequency: str | None) -> str | None:
-    """Normalize and validate a frequency accepted by the public API."""
+    """Normalize and validate a public-API frequency.
+
+    Parameters
+    ----------
+    frequency : str or None
+        Frequency alias supplied by a caller.
+
+    Returns
+    -------
+    str or None
+        Normalized alias, or ``None`` when no filter was requested.
+
+    Raises
+    ------
+    ValueError
+        If the alias is not recognized.
+    """
     if frequency is None:
         return None
 
@@ -878,6 +1356,27 @@ def list_variables(
 
     Timestamp dictionary records used internally by EnergyPlus are omitted.
     ``frequency`` accepts the same names as the modern command-line interface.
+
+    Parameters
+    ----------
+    input_file : str or pathlib.Path
+        ESO or MTR input path.
+    frequency : str or None, optional
+        Reporting-frequency alias used to filter variables.
+    search : str or None, optional
+        Case-insensitive text used to filter variable metadata.
+
+    Returns
+    -------
+    list[DictionaryRecord]
+        Matching report-variable definitions.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If the input file is missing or malformed.
+    ValueError
+        If ``frequency`` is not a supported alias.
     """
     normalized_frequency = _validate_modern_frequency(frequency)
     records = records_for_modern_cli(str(input_file))
@@ -885,6 +1384,18 @@ def list_variables(
 
 
 def default_modern_output_file(input_file: str) -> Path:
+    """Derive the default CSV path for a modern conversion.
+
+    Parameters
+    ----------
+    input_file : str
+        ESO or MTR input path.
+
+    Returns
+    -------
+    pathlib.Path
+        Input path with its suffix replaced by ``.csv``.
+    """
     return Path(input_file).with_suffix(".csv")
 
 
@@ -894,6 +1405,29 @@ def convert_modern_read(
     frequency: str | None,
     search: str | None,
 ) -> Path:
+    """Convert filtered ESO or MTR data with modern output conventions.
+
+    Parameters
+    ----------
+    input_file : str
+        ESO or MTR input path.
+    output_file : str or None
+        Destination CSV path, or ``None`` to derive it from the input.
+    frequency : str or None
+        Validated reporting-frequency alias.
+    search : str or None
+        Case-insensitive variable metadata filter.
+
+    Returns
+    -------
+    pathlib.Path
+        Path to the generated CSV file.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If the input cannot be read, is malformed, or output cannot be opened.
+    """
     input_path = Path(input_file)
     if not input_path.is_file():
         raise ReadVarsFatal([f"Input file does not exist: {input_file}"])
@@ -937,7 +1471,31 @@ def convert(
     frequency: str | None = None,
     search: str | None = None,
 ) -> Path:
-    """Convert an ESO or MTR file to CSV and return its path."""
+    """Convert an ESO or MTR file to CSV and return its path.
+
+    Parameters
+    ----------
+    input_file : str or pathlib.Path
+        ESO or MTR input path.
+    output_file : str or pathlib.Path or None, optional
+        Destination CSV path, or ``None`` to derive it from the input.
+    frequency : str or None, optional
+        Reporting-frequency alias used to select variables.
+    search : str or None, optional
+        Case-insensitive text used to select variable metadata.
+
+    Returns
+    -------
+    pathlib.Path
+        Path to the generated CSV file.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If conversion cannot be completed.
+    ValueError
+        If ``frequency`` is not a supported alias.
+    """
     normalized_frequency = _validate_modern_frequency(frequency)
     return convert_modern_read(
         str(input_file),
@@ -948,6 +1506,20 @@ def convert(
 
 
 def truncate_for_table(value: object, width: int) -> str:
+    """Truncate a value to a fixed-width table cell.
+
+    Parameters
+    ----------
+    value : object
+        Value to stringify.
+    width : int
+        Maximum cell width.
+
+    Returns
+    -------
+    str
+        Original text or an ellipsis-truncated representation.
+    """
     text = str(value)
     if len(text) <= width:
         return text
@@ -957,6 +1529,17 @@ def truncate_for_table(value: object, width: int) -> str:
 
 
 def print_table(rows: list[dict[str, object]], columns: list[tuple[str, str, int]], empty_message: str) -> None:
+    """Print dictionary rows as an aligned plain-text table.
+
+    Parameters
+    ----------
+    rows : list[dict[str, object]]
+        Row mappings to display.
+    columns : list[tuple[str, str, int]]
+        Header, mapping key, and maximum width for each column.
+    empty_message : str
+        Message printed when no rows are available.
+    """
     if not rows:
         print(empty_message)
         return
@@ -979,6 +1562,18 @@ def print_table(rows: list[dict[str, object]], columns: list[tuple[str, str, int
 
 
 def dictionary_record_as_row(record: DictionaryRecord) -> dict[str, object]:
+    """Convert a dictionary record to a serializable row mapping.
+
+    Parameters
+    ----------
+    record : DictionaryRecord
+        Record to convert.
+
+    Returns
+    -------
+    dict[str, object]
+        Mapping used by table, CSV, and JSON output formats.
+    """
     return {
         "number": record.number,
         "frequency": record.frequency,
@@ -990,6 +1585,15 @@ def dictionary_record_as_row(record: DictionaryRecord) -> dict[str, object]:
 
 
 def write_records(records: list[DictionaryRecord], output_format: str) -> None:
+    """Write dictionary records to standard output.
+
+    Parameters
+    ----------
+    records : list[DictionaryRecord]
+        Records to serialize.
+    output_format : str
+        One of ``table``, ``csv``, or ``json``.
+    """
     rows = [dictionary_record_as_row(record) for record in records]
 
     if output_format == "json":
@@ -1020,6 +1624,18 @@ def write_records(records: list[DictionaryRecord], output_format: str) -> None:
 
 
 def run_modern_cli(argv: list[str]) -> int:
+    """Execute the modern command-line interface.
+
+    Parameters
+    ----------
+    argv : list[str]
+        Modern command-line arguments.
+
+    Returns
+    -------
+    int
+        Process exit status.
+    """
     parser = build_modern_parser()
     args = parser.parse_args(normalized_modern_args(argv))
     if args.command is None:
@@ -1046,6 +1662,21 @@ def run_modern_cli(argv: list[str]) -> int:
 
 
 def write_header(output: TextIO, selected: list[SelectedVariable], separator: str, fix_header: bool, audit: TextIO | None) -> None:
+    """Write the delimited output header.
+
+    Parameters
+    ----------
+    output : TextIO
+        Open destination stream.
+    selected : list[SelectedVariable]
+        Variables defining the output columns.
+    separator : str
+        Field delimiter.
+    fix_header : bool
+        Omit the historical trailing header space when ``True``.
+    audit : TextIO or None
+        Legacy audit stream used to report unresolved report numbers.
+    """
     header_parts = ["Date/Time"]
     for variable in selected:
         if variable.found:
@@ -1060,6 +1691,25 @@ def write_header(output: TextIO, selected: list[SelectedVariable], separator: st
 
 
 def split_numeric_fields(line: str, count: int) -> list[float]:
+    """Parse a required number of comma-separated numeric fields.
+
+    Parameters
+    ----------
+    line : str
+        ESO data line.
+    count : int
+        Number of leading fields to parse.
+
+    Returns
+    -------
+    list[float]
+        Parsed numeric fields.
+
+    Raises
+    ------
+    ValueError
+        If too few fields exist or a field is not numeric.
+    """
     fields = line.split(",")
     if len(fields) < count:
         raise ValueError
@@ -1067,6 +1717,26 @@ def split_numeric_fields(line: str, count: int) -> list[float]:
 
 
 def format_time_stamp(month: int, day: int, hour_of_day: int, start_minute: float, end_minute: float) -> str:
+    """Format a detailed or timestep timestamp in legacy output form.
+
+    Parameters
+    ----------
+    month : int
+        Calendar month number.
+    day : int
+        Calendar day number.
+    hour_of_day : int
+        EnergyPlus one-based hour of day.
+    start_minute : float
+        Start minute reported by EnergyPlus.
+    end_minute : float
+        End minute reported by EnergyPlus.
+
+    Returns
+    -------
+    str
+        Legacy ``MM/DD  HH:MM:SS`` label with its leading space.
+    """
     current_hour = hour_of_day - 1
     current_minute = int(end_minute)
     current_second = int((end_minute - current_minute) * 60.0)
@@ -1079,6 +1749,20 @@ def format_time_stamp(month: int, day: int, hour_of_day: int, start_minute: floa
 
 
 def format_month_day(month: int, day: int) -> str:
+    """Format a daily timestamp in legacy output form.
+
+    Parameters
+    ----------
+    month : int
+        Calendar month number.
+    day : int
+        Calendar day number.
+
+    Returns
+    -------
+    str
+        Legacy ``MM/DD`` label with its leading space.
+    """
     return f" {month:02d}/{day:02d}"
 
 
@@ -1090,6 +1774,23 @@ def flush_row(
     separator: str,
     legacy_spacing: bool = True,
 ) -> None:
+    """Write a completed output row and clear its value buffers.
+
+    Parameters
+    ----------
+    output : TextIO
+        Open destination stream.
+    label : str
+        Timestamp or aggregation-period row label.
+    out_data : list[str]
+        Buffered values in selected-column order.
+    out_found : list[bool]
+        Flags indicating which buffered values are present.
+    separator : str
+        Field delimiter.
+    legacy_spacing : bool, default=True
+        Append the historical trailing space when ``True``.
+    """
     if not any(out_found):
         return
 
@@ -1114,6 +1815,32 @@ def process_data_records(
     audit: TextIO | None,
     legacy_spacing: bool = True,
 ) -> None:
+    """Convert ESO data records into delimited output rows.
+
+    Parameters
+    ----------
+    eso_lines : list[str]
+        Complete ESO file content.
+    data_start_index : int
+        Index at which data records begin.
+    selected : list[SelectedVariable]
+        Variables to emit in output-column order.
+    output : TextIO
+        Open destination stream.
+    output_file_name : str
+        Output name included in diagnostics.
+    separator : str
+        Field delimiter.
+    audit : TextIO or None
+        Legacy audit stream.
+    legacy_spacing : bool, default=True
+        Preserve historical trailing spaces when ``True``.
+
+    Raises
+    ------
+    ReadVarsFatal
+        If data records are blank, malformed, or prematurely terminated.
+    """
     out_data = [""] * len(selected)
     out_found = [False] * len(selected)
     track_index = {variable.number: index for index, variable in enumerate(selected)}
@@ -1258,6 +1985,22 @@ def process_data_records(
 
 
 def processing_error(output_file_name: str, line: str, audit: TextIO | None) -> None:
+    """Raise a fatal error for a malformed ESO data line.
+
+    Parameters
+    ----------
+    output_file_name : str
+        Output name included in diagnostics.
+    line : str
+        Malformed input line.
+    audit : TextIO or None
+        Legacy audit stream.
+
+    Raises
+    ------
+    ReadVarsFatal
+        Always raised with the malformed-line diagnostics.
+    """
     fatal(
         audit,
         [
@@ -1271,6 +2014,18 @@ def processing_error(output_file_name: str, line: str, audit: TextIO | None) -> 
 
 
 def elapsed_string(start_time: float) -> str:
+    """Format elapsed process time using the legacy display layout.
+
+    Parameters
+    ----------
+    start_time : float
+        Starting value from :func:`time.process_time`.
+
+    Returns
+    -------
+    str
+        Elapsed hours, minutes, and seconds.
+    """
     elapsed = time.process_time() - start_time
     hours = int(elapsed // 3600)
     elapsed -= hours * 3600
@@ -1280,6 +2035,18 @@ def elapsed_string(start_time: float) -> str:
 
 
 def run(argv: list[str]) -> int:
+    """Run either the modern or legacy ReadVars interface.
+
+    Parameters
+    ----------
+    argv : list[str]
+        Command-line arguments excluding the executable name.
+
+    Returns
+    -------
+    int
+        Process exit status.
+    """
     if is_modern_cli(argv):
         return run_modern_cli(argv)
 
@@ -1361,4 +2128,11 @@ def run(argv: list[str]) -> int:
 
 
 def readvarseso() -> None:
+    """Run the console entry point and exit with its status.
+
+    Raises
+    ------
+    SystemExit
+        Always raised with the status returned by :func:`run`.
+    """
     sys.exit(run(sys.argv[1:]))
