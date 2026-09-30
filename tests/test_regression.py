@@ -93,7 +93,10 @@ def test_legacy_output_is_byte_exact(
         f"Missing gold output for {case_name}: {gold_output}. "
         "Run scripts/generate_gold.py with the legacy ReadVarsESO executable."
     )
-    expected = gold_output.read_bytes()
+    # Gold files preserve the CRLF bytes emitted by the Windows Fortran
+    # executable. On other platforms, compare against the native line endings
+    # that the corresponding native ReadVarsESO build would produce.
+    expected = gold_output.read_bytes().replace(b"\r\n", os.linesep.encode())
     actual = (python_directory / output_name).read_bytes()
     if actual != expected:
         pytest.fail(first_byte_difference(expected, actual))
