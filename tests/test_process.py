@@ -87,6 +87,26 @@ def test_select_variables_applies_frequency_and_ignores() -> None:
     assert [(item.number, item.found) for item in selected] == [(8, True)]
 
 
+def test_select_all_variables_excludes_internal_timestamp_records() -> None:
+    records = [
+        parse_dictionary_record(
+            "6,1,Calendar Year of Simulation[] ! When Annual Report Variables Requested"
+        ),
+        parse_dictionary_record("7,1,Environment,Dry Bulb [C] !Hourly"),
+    ]
+
+    selected = select_variables(
+        [record for record in records if record is not None],
+        Requests([], [], [], [], []),
+        True,
+        0,
+        True,
+        None,
+    )
+
+    assert [item.number for item in selected] == [7]
+
+
 @pytest.mark.parametrize(
     ("month", "day", "hour", "start", "end", "expected"),
     [

@@ -1175,7 +1175,9 @@ def select_variables(
     allowed_records = [
         record
         for record in records
-        if is_allowed_frequency(record.line, frequency) and not is_ignored(record, requests)
+        if not is_dictionary_time_stamp_record(record)
+        and is_allowed_frequency(record.line, frequency)
+        and not is_ignored(record, requests)
     ]
 
     if get_vars_from_eso:

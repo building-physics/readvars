@@ -17,6 +17,12 @@ REGRESSION_CASES = sorted(
     for configuration in DATA_DIR.glob("*.rvi")
     if configuration.with_suffix(".eso").is_file()
 )
+REGRESSION_MODES = ("with-rvi", "without-rvi")
+REGRESSION_PARAMETERS = [
+    pytest.param(case_name, mode, id=f"{case_name}-{mode}")
+    for case_name in REGRESSION_CASES
+    for mode in REGRESSION_MODES
+]
 
 
 def configuration_file_names(configuration: Path) -> tuple[str, str]:
@@ -65,17 +71,25 @@ def first_byte_difference(expected: bytes, actual: bytes) -> str:
 
 
 @pytest.mark.regression
-@pytest.mark.parametrize("case_name", REGRESSION_CASES)
+@pytest.mark.parametrize(("case_name", "mode"), REGRESSION_PARAMETERS)
 def test_legacy_output_is_byte_exact(
     case_name: str,
+    mode: str,
     tmp_path: Path,
 ) -> None:
     configuration = DATA_DIR / f"{case_name}.rvi"
     source_data = DATA_DIR / f"{case_name}.eso"
-    input_name, output_name = configuration_file_names(configuration)
+    if mode == "with-rvi":
+        input_name, output_name = configuration_file_names(configuration)
+        arguments = [configuration.name]
+    else:
+        input_name, output_name = "eplusout.eso", "eplusout.csv"
+        arguments = []
+
     python_directory = tmp_path / "python"
     python_directory.mkdir()
-    shutil.copy2(configuration, python_directory / configuration.name)
+    if mode == "with-rvi":
+        shutil.copy2(configuration, python_directory / configuration.name)
     shutil.copy2(source_data, python_directory / input_name)
 
     environment = os.environ.copy()
@@ -83,14 +97,14 @@ def test_legacy_output_is_byte_exact(
         [str(SOURCE_ROOT), environment.get("PYTHONPATH", "")]
     ).rstrip(os.pathsep)
     run_checked(
-        [sys.executable, "-m", "readvars", configuration.name],
+        [sys.executable, "-m", "readvars", *arguments],
         python_directory,
         environment,
     )
 
-    gold_output = GOLD_DIR / case_name / output_name
+    gold_output = GOLD_DIR / case_name / mode / output_name
     assert gold_output.is_file(), (
-        f"Missing gold output for {case_name}: {gold_output}. "
+        f"Missing gold output for {case_name} ({mode}): {gold_output}. "
         "Run scripts/generate_gold.py with the legacy ReadVarsESO executable."
     )
     # Gold files preserve the CRLF bytes emitted by the Windows Fortran

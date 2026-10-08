@@ -95,8 +95,8 @@ time aggregation behavior.
 
 Regression cases are pairs of files under `tests/data` with the same stem and
 `.rvi`/`.eso` extensions. Pytest runs the Python port in an isolated directory
-and compares its output byte-for-byte with the corresponding stored output
-under `tests/gold`:
+both with the RVI argument and without arguments. It compares each output
+byte-for-byte with the corresponding stored output under `tests/gold`:
 
 ```console
 hatch run test:run -m regression
@@ -112,7 +112,8 @@ hatch run python scripts/generate_gold.py \
 ```
 
 Pass one or more fixture stems after the executable to regenerate only selected
-cases. Gold-file changes should be reviewed before they are committed.
+cases. Both invocation modes are generated for each case. Gold-file changes
+should be reviewed before they are committed.
 
 ## License
 
