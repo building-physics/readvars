@@ -75,6 +75,7 @@ from typing import Iterable, NoReturn, TextIO
 NUM_ALLOWED = 255
 UNLIMITED_WARNING_COUNT = 3500
 MAX_OUTPUT_VALUE_LENGTH = 25
+LEGACY_HEADER_LABEL_LIMIT = 144
 
 FREQUENCY_MARKERS = {
     1: "!TimeStep",
@@ -140,6 +141,7 @@ class Options:
     frequency: int
     limited: bool
     fix_header: bool
+    limit_header: bool = True
 
 
 @dataclass
@@ -254,16 +256,20 @@ def parse_options(argv: list[str]) -> Options:
         Parsed RVI name, frequency, limit, and header settings.
     """
     if not argv:
-        return Options("", True, 0, True, False)
+        return Options("", True, 0, True, False, True)
 
     var_file_name = argv[0].lstrip()
     get_vars_from_eso = var_file_name == ""
     frequency = 0
     limited = True
     fix_header = False
+    limit_header = True
 
     for raw_arg in argv[1:]:
         arg = raw_arg.strip().lower()
+        if arg in {"noheaderlimit", "--no-header-limit"}:
+            limit_header = False
+            continue
         if arg.startswith("t") or arg.startswith("de"):
             frequency = 1
         if arg.startswith("h"):
@@ -279,7 +285,7 @@ def parse_options(argv: list[str]) -> Options:
         if arg.startswith("f"):
             fix_header = True
 
-    return Options(var_file_name, get_vars_from_eso, frequency, limited, fix_header)
+    return Options(var_file_name, get_vars_from_eso, frequency, limited, fix_header, limit_header)
 
 
 def is_modern_cli(argv: list[str]) -> bool:
@@ -384,6 +390,11 @@ def build_modern_parser() -> argparse.ArgumentParser:
         "-s",
         "--search",
         help="Only include variables whose key, variable name, units, frequency, or label contains this text.",
+    )
+    read_parser.add_argument(
+        "--no-header-limit",
+        action="store_true",
+        help="Do not truncate column labels to the legacy 144-character limit.",
     )
 
     return parser
@@ -1406,6 +1417,7 @@ def convert_modern_read(
     output_file: str | None,
     frequency: str | None,
     search: str | None,
+    limit_header: bool = True,
 ) -> Path:
     """Convert filtered ESO or MTR data with modern output conventions.
 
@@ -1419,6 +1431,8 @@ def convert_modern_read(
         Validated reporting-frequency alias.
     search : str or None
         Case-insensitive variable metadata filter.
+    limit_header : bool, default=True
+        Truncate column labels to the legacy 144-character limit.
 
     Returns
     -------
@@ -1444,7 +1458,7 @@ def convert_modern_read(
 
     try:
         with output_path.open("w", encoding="utf-8", newline="") as output:
-            write_header(output, selected, ",", True, None)
+            write_header(output, selected, ",", True, None, limit_header)
             process_data_records(
                 eso_lines,
                 dictionary_end_index + 2,
@@ -1472,6 +1486,7 @@ def convert(
     *,
     frequency: str | None = None,
     search: str | None = None,
+    limit_header: bool = True,
 ) -> Path:
     """Convert an ESO or MTR file to CSV and return its path.
 
@@ -1485,6 +1500,9 @@ def convert(
         Reporting-frequency alias used to select variables.
     search : str or None, optional
         Case-insensitive text used to select variable metadata.
+    limit_header : bool, default=True
+        Truncate column labels to the legacy 144-character limit. Set to
+        ``False`` to preserve complete labels.
 
     Returns
     -------
@@ -1504,6 +1522,7 @@ def convert(
         None if output_file is None else str(output_file),
         normalized_frequency,
         search,
+        limit_header,
     )
 
 
@@ -1651,7 +1670,13 @@ def run_modern_cli(argv: list[str]) -> int:
             return 0
 
         if args.command == "read":
-            output_path = convert_modern_read(args.input_file, args.output, args.frequency, args.search)
+            output_path = convert_modern_read(
+                args.input_file,
+                args.output,
+                args.frequency,
+                args.search,
+                not args.no_header_limit,
+            )
             print(f"Wrote {output_path}")
             return 0
     except ReadVarsFatal as err:
@@ -1663,7 +1688,14 @@ def run_modern_cli(argv: list[str]) -> int:
     return 1
 
 
-def write_header(output: TextIO, selected: list[SelectedVariable], separator: str, fix_header: bool, audit: TextIO | None) -> None:
+def write_header(
+    output: TextIO,
+    selected: list[SelectedVariable],
+    separator: str,
+    fix_header: bool,
+    audit: TextIO | None,
+    limit_header: bool = True,
+) -> None:
     """Write the delimited output header.
 
     Parameters
@@ -1678,11 +1710,17 @@ def write_header(output: TextIO, selected: list[SelectedVariable], separator: st
         Omit the historical trailing header space when ``True``.
     audit : TextIO or None
         Legacy audit stream used to report unresolved report numbers.
+    limit_header : bool, default=True
+        Truncate each variable label to the 144 characters available after
+        the delimiter in the legacy Fortran header buffer.
     """
     header_parts = ["Date/Time"]
     for variable in selected:
         if variable.found:
-            header_parts.append(variable.label.strip())
+            label = variable.label.strip()
+            if limit_header:
+                label = label[:LEGACY_HEADER_LABEL_LIMIT]
+            header_parts.append(label)
         else:
             message = f"line 904 variable ={variable.number} not found"
             display_string(message)
@@ -2104,7 +2142,7 @@ def run(argv: list[str]) -> int:
         selected = select_variables(records, requests, get_vars_from_eso, options.frequency, options.limited, audit)
         audit_write(audit, f" number variables requested for output={len(selected)}")
 
-        write_header(output, selected, separator, options.fix_header, audit)
+        write_header(output, selected, separator, options.fix_header, audit, options.limit_header)
         data_start_index = dictionary_end_index + 2
         process_data_records(eso_lines, data_start_index, selected, output, output_file_name, separator, audit)
 

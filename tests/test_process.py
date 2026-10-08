@@ -17,6 +17,7 @@ from readvars.process import (
     process_data_records,
     select_variables,
     separator_for_output,
+    write_header,
 )
 
 
@@ -24,10 +25,26 @@ TEST_ESO = Path(__file__).parent / "data" / "readvars_discovery.eso"
 
 
 def test_parse_legacy_options() -> None:
-    assert parse_options([]) == Options("", True, 0, True, False)
+    assert parse_options([]) == Options("", True, 0, True, False, True)
     assert parse_options(["custom.rvi", "daily", "unlimited", "fixheader"]) == Options(
-        "custom.rvi", False, 3, False, True
+        "custom.rvi", False, 3, False, True, True
     )
+    assert parse_options(["custom.rvi", "noheaderlimit"]) == Options(
+        "custom.rvi", False, 0, True, False, False
+    )
+
+
+def test_header_labels_use_legacy_limit_by_default() -> None:
+    label = "x" * 150
+    selected = [SelectedVariable(7, label, True)]
+
+    limited = StringIO()
+    write_header(limited, selected, ",", True, None)
+    assert limited.getvalue() == f"Date/Time,{'x' * 144}\n"
+
+    unlimited = StringIO()
+    write_header(unlimited, selected, ",", True, None, limit_header=False)
+    assert unlimited.getvalue() == f"Date/Time,{label}\n"
 
 
 def test_output_separator_follows_legacy_extension_rules() -> None:

@@ -32,6 +32,13 @@ readvars read eplusout.eso --output temperatures.csv \
   --frequency hourly --search temperature
 ```
 
+Column labels are truncated to 144 characters by default to match the legacy
+Fortran header buffer. Use `--no-header-limit` to retain complete labels:
+
+```console
+readvars read eplusout.eso --no-header-limit
+```
+
 Inspect the data dictionary as a table, CSV, or JSON:
 
 ```console
@@ -49,6 +56,8 @@ An existing RVI or MVI file can be passed exactly as it was to ReadVarsESO:
 ```console
 ReadVarsESO custom.rvi hourly unlimited fixheader
 ```
+
+The legacy interface accepts `noheaderlimit` to retain complete column labels.
 
 With no arguments, the command reads `eplusout.eso`, writes `eplusout.csv`,
 and creates the traditional `readvars.audit` file. Output extensions select

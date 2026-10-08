@@ -1,0 +1,2120 @@
+Program Version,EnergyPlus, Version 26.2.0-a346bd3dbb, YMD=2026.10.08 14:56
+1,5,Environment Title[],Latitude[deg],Longitude[deg],Time Zone[],Elevation[m]
+2,8,Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],Hour[],StartMinute[],EndMinute[],DayType
+3,5,Cumulative Day of Simulation[],Month[],Day of Month[],DST Indicator[1=yes 0=no],DayType  ! When Daily Meters Requested
+4,2,Cumulative Days of Simulation[],Month[]  ! When Monthly Meters Requested
+5,1,Cumulative Days of Simulation[] ! When Run Period Meters Requested
+6,1,Calendar Year of Simulation[] ! When Annual Meters Requested
+3093,9,Cooling:Electricity [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3094,11,Cooling:Electricity [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3284,9,WaterSystems:NaturalGas [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3285,11,WaterSystems:NaturalGas [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2783,9,Fans:Electricity [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2784,11,Fans:Electricity [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2855,9,NaturalGas:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2856,11,NaturalGas:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2867,9,NaturalGas:HVAC [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2868,11,NaturalGas:HVAC [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3272,9,NaturalGas:Plant [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3273,11,NaturalGas:Plant [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3362,9,Water:Plant [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3363,11,Water:Plant [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3374,9,WaterSystems:Water [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3375,11,WaterSystems:Water [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+224,9,InteriorLights:Electricity [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+225,11,InteriorLights:Electricity [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+309,9,InteriorLights:Electricity:Zone:NORTHZONE_1STFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+310,11,InteriorLights:Electricity:Zone:NORTHZONE_1STFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+383,9,InteriorLights:Electricity:Zone:NORTHZONE_2NDFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+384,11,InteriorLights:Electricity:Zone:NORTHZONE_2NDFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+236,9,InteriorLights:Electricity:Zone:SOUTHZONE_1STFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+237,11,InteriorLights:Electricity:Zone:SOUTHZONE_1STFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+346,9,InteriorLights:Electricity:Zone:SOUTHZONE_2NDFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+347,11,InteriorLights:Electricity:Zone:SOUTHZONE_2NDFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2907,9,Heating:Electricity [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2908,11,Heating:Electricity [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2879,9,Heating:NaturalGas [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2880,11,Heating:NaturalGas [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+456,9,InteriorEquipment:Electricity [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+457,11,InteriorEquipment:Electricity [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2771,9,Electricity:HVAC [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2772,11,Electricity:HVAC [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+188,9,Electricity:Building [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+189,11,Electricity:Building [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+176,9,Electricity:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+177,11,Electricity:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+297,9,Electricity:Zone:NORTHZONE_1STFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+298,11,Electricity:Zone:NORTHZONE_1STFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+371,9,Electricity:Zone:NORTHZONE_2NDFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+372,11,Electricity:Zone:NORTHZONE_2NDFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+200,9,Electricity:Zone:SOUTHZONE_1STFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+201,11,Electricity:Zone:SOUTHZONE_1STFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+334,9,Electricity:Zone:SOUTHZONE_2NDFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+335,11,Electricity:Zone:SOUTHZONE_2NDFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2234,9,Cooling:EnergyTransfer [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2235,11,Cooling:EnergyTransfer [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3069,9,CoolingCoils:EnergyTransfer [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3070,11,CoolingCoils:EnergyTransfer [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2184,9,Heating:EnergyTransfer [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2185,11,Heating:EnergyTransfer [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2839,9,HeatingCoils:EnergyTransfer [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2840,11,HeatingCoils:EnergyTransfer [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2160,9,EnergyTransfer:Building [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2161,11,EnergyTransfer:Building [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2148,9,EnergyTransfer:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2149,11,EnergyTransfer:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2827,9,EnergyTransfer:HVAC [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2828,11,EnergyTransfer:HVAC [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2303,7,EnergyTransfer:Zone:NORTHZONE_1STFLOOR [J] !Daily [Value,Min,Hour,Minute,Max,Hour,Minute]
+2304,9,EnergyTransfer:Zone:NORTHZONE_1STFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2305,11,EnergyTransfer:Zone:NORTHZONE_1STFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2472,9,EnergyTransfer:Zone:NORTHZONE_2NDFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2473,11,EnergyTransfer:Zone:NORTHZONE_2NDFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2172,9,EnergyTransfer:Zone:SOUTHZONE_1STFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2173,11,EnergyTransfer:Zone:SOUTHZONE_1STFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2388,9,EnergyTransfer:Zone:SOUTHZONE_2NDFLOOR [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2389,11,EnergyTransfer:Zone:SOUTHZONE_2NDFLOOR [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4557,9,CarbonEquivalentEmissions:Carbon Equivalent [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4558,11,CarbonEquivalentEmissions:Carbon Equivalent [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3866,9,CO2:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3867,11,CO2:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3892,9,CO:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3893,11,CO:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3918,9,CH4:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3919,11,CH4:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3944,9,NOx:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3945,11,NOx:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3970,9,N2O:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3971,11,N2O:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3996,9,SO2:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3997,11,SO2:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4022,9,PM:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4023,11,PM:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4048,9,PM10:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4049,11,PM10:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4074,9,PM2.5:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4075,11,PM2.5:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4100,9,NH3:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4101,11,NH3:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4126,9,NMVOC:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4127,11,NMVOC:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4152,9,Hg:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4153,11,Hg:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4178,9,Pb:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4179,11,Pb:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4204,9,WaterEnvironmentalFactors:Facility [L] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4205,11,WaterEnvironmentalFactors:Facility [L] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4230,9,Nuclear High:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4231,11,Nuclear High:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4256,9,Nuclear Low:Facility [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4257,11,Nuclear Low:Facility [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4295,9,ElectricityEmissions:CO2 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4296,11,ElectricityEmissions:CO2 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4309,9,ElectricityEmissions:CO [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4310,11,ElectricityEmissions:CO [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4323,9,ElectricityEmissions:CH4 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4324,11,ElectricityEmissions:CH4 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4337,9,ElectricityEmissions:NOx [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4338,11,ElectricityEmissions:NOx [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4351,9,ElectricityEmissions:N2O [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4352,11,ElectricityEmissions:N2O [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4365,9,ElectricityEmissions:SO2 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4366,11,ElectricityEmissions:SO2 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4379,9,ElectricityEmissions:PM [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4380,11,ElectricityEmissions:PM [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4393,9,ElectricityEmissions:PM10 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4394,11,ElectricityEmissions:PM10 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4407,9,ElectricityEmissions:PM2.5 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4408,11,ElectricityEmissions:PM2.5 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4421,9,ElectricityEmissions:NH3 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4422,11,ElectricityEmissions:NH3 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4435,9,ElectricityEmissions:NMVOC [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4436,11,ElectricityEmissions:NMVOC [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4449,9,ElectricityEmissions:Hg [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4450,11,ElectricityEmissions:Hg [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4463,9,ElectricityEmissions:Pb [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4464,11,ElectricityEmissions:Pb [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4477,9,ElectricityEmissions:WaterEnvironmentalFactors [L] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4478,11,ElectricityEmissions:WaterEnvironmentalFactors [L] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4491,9,ElectricityEmissions:Nuclear High [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4492,11,ElectricityEmissions:Nuclear High [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4505,9,ElectricityEmissions:Nuclear Low [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4506,11,ElectricityEmissions:Nuclear Low [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3878,9,NaturalGasEmissions:CO2 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3879,11,NaturalGasEmissions:CO2 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3904,9,NaturalGasEmissions:CO [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3905,11,NaturalGasEmissions:CO [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3930,9,NaturalGasEmissions:CH4 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3931,11,NaturalGasEmissions:CH4 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3956,9,NaturalGasEmissions:NOx [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3957,11,NaturalGasEmissions:NOx [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3982,9,NaturalGasEmissions:N2O [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3983,11,NaturalGasEmissions:N2O [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4008,9,NaturalGasEmissions:SO2 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4009,11,NaturalGasEmissions:SO2 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4034,9,NaturalGasEmissions:PM [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4035,11,NaturalGasEmissions:PM [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4060,9,NaturalGasEmissions:PM10 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4061,11,NaturalGasEmissions:PM10 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4086,9,NaturalGasEmissions:PM2.5 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4087,11,NaturalGasEmissions:PM2.5 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4112,9,NaturalGasEmissions:NH3 [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4113,11,NaturalGasEmissions:NH3 [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4138,9,NaturalGasEmissions:NMVOC [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4139,11,NaturalGasEmissions:NMVOC [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4164,9,NaturalGasEmissions:Hg [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4165,11,NaturalGasEmissions:Hg [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4190,9,NaturalGasEmissions:Pb [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4191,11,NaturalGasEmissions:Pb [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4216,9,NaturalGasEmissions:WaterEnvironmentalFactors [L] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4217,11,NaturalGasEmissions:WaterEnvironmentalFactors [L] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4242,9,NaturalGasEmissions:Nuclear High [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4243,11,NaturalGasEmissions:Nuclear High [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4268,9,NaturalGasEmissions:Nuclear Low [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4269,11,NaturalGasEmissions:Nuclear Low [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3350,9,Water:Facility [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2546,9,ElectricityPurchased:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2595,9,ElectricitySurplusSold:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+2644,9,ElectricityNet:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+4545,9,Carbon Equivalent:Facility [kg] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3205,9,PlantLoopHeatingDemand:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3400,9,MainsWater:Facility [m3] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3841,9,Source:Facility [J] !Monthly [Value,Min,Day,Hour,Minute,Max,Day,Hour,Minute]
+3351,11,Water:Facility [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2547,11,ElectricityPurchased:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2596,11,ElectricitySurplusSold:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+2645,11,ElectricityNet:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+4546,11,Carbon Equivalent:Facility [kg] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3206,11,PlantLoopHeatingDemand:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3401,11,MainsWater:Facility [m3] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+3842,11,Source:Facility [J] !Annual [Value,Min,Month,Day,Hour,Minute,Max,Month,Day,Hour,Minute]
+End of Data Dictionary
+1,RUN PERIOD 1,  41.98, -87.92,  -6.00, 201.00
+3,1, 1, 1, 0,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,2, 1, 2, 0,Thursday
+2303,130608052.24585597,0.0, 1,10,7537234.73939701, 9,10
+3,3, 1, 3, 0,Friday
+2303,118408273.78465265,0.0, 1,10,7378142.058129339, 9,10
+3,4, 1, 4, 0,Saturday
+2303,109779792.32236211,0.0, 1,10,8295970.076925038, 9,20
+3,5, 1, 5, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,6, 1, 6, 0,Monday
+2303,203962864.8653293,0.0, 1,10,7029284.529460004, 9,10
+3,7, 1, 7, 0,Tuesday
+2303,214435511.8059313,0.0, 1,10,6791484.545835177, 9,10
+3,8, 1, 8, 0,Wednesday
+2303,197054052.6905409,0.0, 1,10,6813438.034224159, 9,10
+3,9, 1, 9, 0,Thursday
+2303,127502784.55840665,0.0, 1,10,7267730.435301047, 9,10
+3,10, 1,10, 0,Friday
+2303,88644033.91179779,0.0, 1,10,7403009.114141386, 9,10
+3,11, 1,11, 0,Saturday
+2303,115380282.9681702,0.0, 1,10,8295755.982366188, 9,20
+3,12, 1,12, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,13, 1,13, 0,Monday
+2303,167410698.28399232,0.0, 1,10,7161407.061931008, 9,10
+3,14, 1,14, 0,Tuesday
+2303,136236285.9683186,0.0, 1,10,7369082.199306685, 9,10
+3,15, 1,15, 0,Wednesday
+2303,130032784.37293233,0.0, 1,10,7252150.725746978, 9,10
+3,16, 1,16, 0,Thursday
+2303,104129618.6192608,0.0, 1,10,7393952.152331527, 9,10
+3,17, 1,17, 0,Friday
+2303,67068202.24663694,0.0, 1,10,7567334.585755346, 9,10
+3,18, 1,18, 0,Saturday
+2303,82015499.68629707,0.0, 1,10,8257907.714647845, 9,10
+3,19, 1,19, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,20, 1,20, 0,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,21, 1,21, 0,Tuesday
+2303,90101451.27412978,0.0, 1,10,7562301.96798646, 9,10
+3,22, 1,22, 0,Wednesday
+2303,83306705.49208775,0.0, 1,10,7517521.669235848, 9,10
+3,23, 1,23, 0,Thursday
+2303,93427467.1553002,0.0, 1,10,7255425.072384846, 9,10
+3,24, 1,24, 0,Friday
+2303,105564972.46722545,0.0, 1,10,7487348.754799938, 9,10
+3,25, 1,25, 0,Saturday
+2303,102738478.12012039,0.0, 1,10,8259693.039661965, 9,10
+3,26, 1,26, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,27, 1,27, 0,Monday
+2303,256550171.3956708,0.0, 1,10,6818421.7812889395, 9,10
+3,28, 1,28, 0,Tuesday
+2303,199221774.27144316,0.0, 1,10,6988493.444342275, 9,10
+3,29, 1,29, 0,Wednesday
+2303,157521464.14011946,0.0, 1,10,7235739.615477997, 9,10
+3,30, 1,30, 0,Thursday
+2303,182201345.9745542,0.0, 1,10,7037500.932283407, 9,10
+3,31, 1,31, 0,Friday
+2303,125135679.8271177,0.0, 1,10,7353184.317287485, 9,10
+4,31, 1
+176,16752594965.717167,445500.0, 1, 1,10,9750665.300164595, 2,11,10
+188,12771594000.0,445500.0, 1, 1,10,8019000.0, 2, 9,10
+200,3192898500.0,111375.0, 1, 1,10,2004750.0, 2, 9,10
+224,10406484000.0,363000.0, 1, 1,10,6534000.0, 2, 9,10
+236,2601621000.0,90750.0, 1, 1,10,1633500.0, 2, 9,10
+297,3192898500.0,111375.0, 1, 1,10,2004750.0, 2, 9,10
+309,2601621000.0,90750.0, 1, 1,10,1633500.0, 2, 9,10
+334,3192898500.0,111375.0, 1, 1,10,2004750.0, 2, 9,10
+346,2601621000.0,90750.0, 1, 1,10,1633500.0, 2, 9,10
+371,3192898500.0,111375.0, 1, 1,10,2004750.0, 2, 9,10
+383,2601621000.0,90750.0, 1, 1,10,1633500.0, 2, 9,10
+456,2365110000.0,82500.0, 1, 1,10,1485000.0, 2, 9,10
+2148,36355712626.99349,0.0, 1, 1,10,84336287.77267943,11, 9,20
+2160,18742946153.595543,0.0, 1, 1,10,42573561.74945786,11, 9,20
+2172,3088206643.488644,0.0, 1, 1,10,8362938.357820394,11, 9,20
+2184,16369602822.75305,0.0, 1, 1,10,42573561.74945786,11, 9,20
+2234,2373343330.8425207,0.0, 1, 1,10,11893759.584098864,21,18,10
+2304,3388438248.448248,0.0, 1, 1,10,8295970.076925038, 4, 9,20
+2388,5676712849.410192,0.0, 1, 1,10,13099958.157150611,27, 7,30
+2472,6589588412.248478,0.0, 1, 1,10,13035338.410817835,27, 7,30
+2546,16752594965.717167,445500.0, 1, 1,10,9750665.300164595, 2,11,10
+2595,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+2644,16752594965.717167,445500.0, 1, 1,10,9750665.300164595, 2,11,10
+2771,3974128911.4319754,0.0, 1, 1,10,5882429.668775409,18, 7,10
+2783,3969020851.5793943,0.0, 1, 1,10,1722665.3001645945, 2, 7,30
+2827,17612766473.39794,0.0, 1, 1,10,41762726.02322158, 2, 9,10
+2839,17593392672.081543,0.0, 1, 1,10,41762726.02322158, 2, 9,10
+2855,29150130720.4048,0.0, 1, 1,10,61578407.52902697,27, 9,10
+2867,21991740840.101875,0.0, 1, 1,10,52203407.529026985, 6, 9,30
+2879,21991740840.101875,0.0, 1, 1,10,52203407.529026985, 6, 9,30
+2907,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+3069,19373801.316402353,0.0, 1, 1,10,16271310.20004971,18, 7,10
+3093,5108059.852581108,0.0, 1, 1,10,4159764.368610815,18, 7,10
+3205,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+3272,7158389880.302882,0.0, 1, 1,10,9375000.0, 2,11,10
+3284,7158389880.302882,0.0, 1, 1,10,9375000.0, 2,11,10
+3350,30.377113085516257,0.0015598404624260868, 1, 1,10,0.02222772658957174, 2,13,10
+3362,30.377113085516257,0.0015598404624260868, 1, 1,10,0.02222772658957174, 2,13,10
+3374,30.377113085516257,0.0015598404624260868, 1, 1,10,0.02222772658957174, 2,13,10
+3400,30.377113085516257,0.0015598404624260868, 1, 1,10,0.02222772658957174, 2,13,10
+3841,104637323635.92621,2007423.0, 1, 1,10,105514905.37156864,27, 9,10
+3866,4284.356417959794,0.074992426344, 1,14,10,4.734714119476454,27, 9,10
+3878,1464.3390351597964,0.0, 1, 1,10,3.093353739392077,27, 9,10
+3892,1.7296785574975457,0.000018738429435, 1, 1,10,0.0025754775712609015,27, 9,10
+3904,1.0250381116653866,0.0, 1, 1,10,0.0021653492801914573,27, 9,10
+3918,0.051496281017777784,6.23065608e-7, 1, 1,10,0.00007292633828038592,27, 9,10
+3930,0.028066503761004502,0.0, 1, 1,10,0.000059289291807542927,27, 9,10
+3944,8.101463087430469,0.00018299050604999998, 1,14,10,0.006582911295085165,27, 9,10
+3956,1.220282772217586,0.0, 1, 1,10,0.002577795295980127,27, 9,10
+3970,0.06737341187345317,0.0000010777353345, 1,14,10,0.00008029990622844368,27, 9,10
+3982,0.026846220988786848,0.0, 1, 1,10,0.000056711496511562794,27, 9,10
+3996,14.510569189936872,0.00038568333869999996, 1,14,10,0.008456923893018798,27, 9,10
+4008,0.007321696633305504,0.0, 1, 1,10,0.00001546677177588076,27, 9,10
+4022,0.5883275858508549,0.000013179070575, 1, 1,10,0.0004843628381795887,27, 9,10
+4034,0.09274143238827505,0.0, 1, 1,10,0.00019591231933767454,27, 9,10
+4048,0.3718557399424965,0.000008039025225, 1, 1,10,0.0003228843533654423,27, 9,10
+4060,0.06955600141587952,0.0, 1, 1,10,0.00014693408555723714,27, 9,10
+4074,0.21647178760807875,0.00000514004535, 1, 1,10,0.00016147836165733147,27, 9,10
+4086,0.023185372672134084,0.0, 1, 1,10,0.00004897811062362242,27, 9,10
+4100,0.018568040176961717,4.93777944e-7, 1, 1,10,0.000010807325397412833,17, 9,20
+4112,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4126,0.12949080760712706,0.0000016587386145, 1,14,10,0.0001780835786536505,27, 9,10
+4138,0.06711555247196717,0.0, 1, 1,10,0.00014177874127890695,27, 9,10
+4152,0.000059530854463491845,1.4987257064999999e-9, 1,14,10,3.950488786875844e-8,27, 9,10
+4164,0.000003172729377739581,0.0, 1, 1,10,6.702255453866824e-9,27, 9,10
+4178,0.0000061014138610879296,0.0, 1, 1,10,1.2888976479900636e-8,27, 9,10
+4190,0.0000061014138610879296,0.0, 1, 1,10,1.2888976479900636e-8,27, 9,10
+4204,35192.84634828031,0.93587967, 1, 1,10,20.483612622667774,27, 9,10
+4216,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4230,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4242,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4256,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4268,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4295,2820.0173827999124,0.074992426344, 1,14,10,1.6413603800843772, 2,11,10
+4309,0.7046404458321628,0.000018738429435, 1, 1,10,0.00041012829106944416, 2,11,10
+4323,0.023429777256772148,6.23065608e-7, 1, 1,10,0.000013637046472843, 2,11,10
+4337,6.88118031521287,0.00018299050604999998, 1,14,10,0.004005115999105038, 2,11,10
+4351,0.04052719088466796,0.0000010777353345, 1,14,10,0.00002358840971688089,27, 9,10
+4365,14.503247493303526,0.00038568333869999996, 1,14,10,0.008441457121242916, 2,11,10
+4379,0.49558615346257623,0.000013179070575, 1, 1,10,0.00028845051884191414, 2,11,10
+4393,0.302299738526618,0.000008039025225, 1, 1,10,0.00017595026780820513, 2,11,10
+4407,0.19328641493595045,0.00000514004535, 1, 1,10,0.00011250025103370906,17, 9,20
+4421,0.018568040176961717,4.93777944e-7, 1, 1,10,0.000010807325397412833,17, 9,20
+4435,0.062375255135156946,0.0000016587386145, 1,14,10,0.000036304837374743544, 2,11,10
+4449,0.00005635812508575267,1.4987257064999999e-9, 1,14,10,3.280263241489162e-8, 2,11,10
+4463,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4477,35192.84634828031,0.93587967, 1, 1,10,20.483612622667774,27, 9,10
+4491,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4505,0.0,0.0, 1, 1,10,0.0, 1, 1,10
+4545,1174.1058827945317,0.02054134552354335, 1,14,10,1.298096372013445,27, 9,10
+4557,1174.1058827945317,0.02054134552354335, 1,14,10,1.298096372013445,27, 9,10
+3,32, 2, 1, 0,Saturday
+2303,130152024.35572481,0.0, 1,10,8290187.36156304, 9,20
+3,33, 2, 2, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,34, 2, 3, 0,Monday
+2303,130721002.33422326,0.0, 1,10,7487425.193691002, 9,10
+3,35, 2, 4, 0,Tuesday
+2303,111365045.94179791,0.0, 1,10,7437159.403050629, 9,10
+3,36, 2, 5, 0,Wednesday
+2303,173153013.32842034,0.0, 1,10,6956339.389831489, 9,10
+3,37, 2, 6, 0,Thursday
+2303,183927853.06570324,0.0, 1,10,6798484.473436131, 9,10
+3,38, 2, 7, 0,Friday
+2303,169777384.38621703,0.0, 1,10,6833270.5803766, 9,10
+3,39, 2, 8, 0,Saturday
+2303,126856791.71164991,0.0, 1,10,8300104.430297559, 9,30
+3,40, 2, 9, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,41, 2,10, 0,Monday
+2303,85946418.68521059,0.0, 1,10,7471379.276862155, 9,10
+3,42, 2,11, 0,Tuesday
+2303,68797482.48135905,0.0, 1,10,7539000.739492714, 9,10
+3,43, 2,12, 0,Wednesday
+2303,73397056.13828166,0.0, 1,10,7650749.269373319, 9,10
+3,44, 2,13, 0,Thursday
+2303,84979824.7926965,0.0, 1,10,7548088.958055455, 9,10
+3,45, 2,14, 0,Friday
+2303,112812636.00656247,0.0, 1,10,7427328.5200049225, 9,10
+3,46, 2,15, 0,Saturday
+2303,113744296.95719314,0.0, 1,10,8287182.212247192, 9,20
+3,47, 2,16, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,48, 2,17, 0,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,49, 2,18, 0,Tuesday
+2303,86600535.40132537,0.0, 1,10,7511505.137721099, 9,10
+3,50, 2,19, 0,Wednesday
+2303,106021198.1905003,0.0, 1,10,7494668.137463417, 9,10
+3,51, 2,20, 0,Thursday
+2303,102242922.90121226,0.0, 1,10,7226385.50673779, 9,10
+3,52, 2,21, 0,Friday
+2303,107498347.95423546,0.0, 1,10,7295842.591838412, 9,10
+3,53, 2,22, 0,Saturday
+2303,91013558.76904695,0.0, 1,10,8257222.490664642, 9,10
+3,54, 2,23, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,55, 2,24, 0,Monday
+2303,93015622.53230084,0.0, 1,10,7613303.717420187, 9,10
+3,56, 2,25, 0,Tuesday
+2303,87251296.34666872,0.0, 1,10,7532014.6582964165, 9,10
+3,57, 2,26, 0,Wednesday
+2303,94847683.37436932,0.0, 1,10,7438116.68460652, 9,10
+3,58, 2,27, 0,Thursday
+2303,103827278.6749972,0.0, 1,10,7379688.352444788, 9,10
+3,59, 2,28, 0,Friday
+2303,71656396.12169082,0.0, 1,10,7346590.152822108, 9,10
+4,59, 2
+176,15251638010.015074,99999999999999.0, 1, 1,10,12668171.725243438,24, 7,10
+188,11584782000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,2896195500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,9439452000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2359863000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,2896195500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2359863000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,2896195500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2359863000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,2896195500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2359863000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2145330000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,26332340409.72272,99999999999999.0, 1, 1,10,84367715.93664756, 1, 9,20
+2160,13975295618.236696,99999999999999.0, 1, 1,10,42604989.91342598, 1, 9,20
+2172,2433654348.5422482,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,11459150293.002863,99999999999999.0, 1, 1,10,42604989.91342598, 1, 9,20
+2234,2516145325.233881,99999999999999.0, 1, 1,10,12873775.949106,11,18,10
+2304,2509605670.451386,0.0, 1, 1,10,8300104.430297559, 8, 9,30
+2388,4240579232.168273,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,4791456367.074836,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,15251638010.015074,99999999999999.0, 1, 1,10,12668171.72524344,24, 7,10
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,15251638010.015074,99999999999999.0, 1, 1,10,12668171.72524344,24, 7,10
+2771,3660620985.125893,99999999999999.0, 1, 1,10,11777171.72524344,24, 7,10
+2783,3638269113.947772,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,12357044791.485916,99999999999999.0, 1, 1,10,58483203.05907601,24, 7,10
+2839,12268166987.349188,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2855,21830026327.030582,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,15335208734.186474,99999999999999.0, 1, 1,10,-99999999999999.0, 6, 9,30
+2879,15335208734.186474,99999999999999.0, 1, 1,10,-99999999999999.0, 6, 9,30
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,88877804.13672914,99999999999999.0, 1, 1,10,40411550.84783639,24, 7,10
+3093,22351871.178121403,99999999999999.0, 1, 1,10,10054506.425078845,24, 7,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,6494817592.844106,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,6494817592.844106,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,27.59981714216637,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,27.59981714216637,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,27.59981714216637,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,27.59981714216637,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,90553907200.15843,99999999999999.0, 1, 1,10,105514905.37156865, 4, 9,10
+3866,3663.9745996373204,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3878,1096.6180562223228,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.4091410685392474,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.7676332287663361,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.04234909180984475,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.02101851692834956,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,7.178506154793854,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3956,0.9138485621021553,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.05700080572291496,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.020104668366247386,99999999999999.0, 1, 1,10,0.00005671149651156281, 4, 9,10
+3996,13.209305018076199,99999999999999.0, 1,14,10,0.01097290790942192,24, 7,10
+4008,0.005483091372612943,99999999999999.0, 1, 1,10,0.000015466771775880763, 4, 9,10
+4022,0.5206363162366933,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4034,0.06945244705971114,99999999999999.0, 1, 1,10,0.0001959123193376746, 4, 9,10
+4048,0.32730432602853915,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4060,0.05208928071971757,99999999999999.0, 1, 1,10,0.00014693408555723717, 4, 9,10
+4074,0.19333194654808752,99999999999999.0, 1, 1,10,0.0001641288081549304,24, 7,10
+4086,0.0173631226799409,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.016904427517884096,99999999999999.0, 1, 1,10,0.00001404099615876462,24, 7,10
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.10704838449942866,99999999999999.0, 1,14,10,0.00017808357865365057, 4, 9,10
+4138,0.0502616709156186,99999999999999.0, 1, 1,10,0.00014177874127890703, 4, 9,10
+4152,0.00005368469314538619,99999999999999.0, 1,14,10,4.507621210518005e-8,24, 7,10
+4164,0.0000023760018954603344,99999999999999.0, 1, 1,10,6.702255453866825e-9, 4, 9,10
+4178,0.000004569242810510781,99999999999999.0, 1, 1,10,1.2888976479900639e-8, 4, 9,10
+4190,0.000004569242810510781,99999999999999.0, 1, 1,10,1.2888976479900639e-8, 4, 9,10
+4204,32039.726033158815,99999999999999.0, 1, 1,10,26.612535070087905,24, 7,10
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,2567.356543414922,99999999999999.0, 1,14,10,2.132473479278254,24, 7,10
+4309,0.641507839772914,99999999999999.0, 1, 1,10,0.0005328431917933478,24, 7,10
+4323,0.02133057488149427,99999999999999.0, 1, 1,10,0.00001771740093880407,24, 7,10
+4337,6.264657592691637,99999999999999.0, 1,14,10,0.005203490807476091,24, 7,10
+4351,0.03689613735666955,99999999999999.0, 1,14,10,0.0000306463216426682,24, 7,10
+4365,13.203821926703606,99999999999999.0, 1,14,10,0.010967234043135418,24, 7,10
+4379,0.4511838691769684,99999999999999.0, 1, 1,10,0.00037475809028777286,24, 7,10
+4393,0.27521504530882196,99999999999999.0, 1, 1,10,0.00022859652537343163,24, 7,10
+4407,0.17596882386814833,99999999999999.0, 1, 1,10,0.00014616156491434123,24, 7,10
+4421,0.016904427517884096,99999999999999.0, 1, 1,10,0.00001404099615876462,24, 7,10
+4435,0.05678671358381045,99999999999999.0, 1,14,10,0.00004716764447986168,24, 7,10
+4449,0.000051308691249926356,99999999999999.0, 1,14,10,4.261754123227564e-8,24, 7,10
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,32039.726033158815,99999999999999.0, 1, 1,10,26.612535070087905,24, 7,10
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1004.0330319130316,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+4557,1004.0330319130316,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3,60, 3, 1, 0,Saturday
+2303,98442513.47503835,0.0, 1,10,8260635.807170971, 9,10
+3,61, 3, 2, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,62, 3, 3, 0,Monday
+2303,105514617.30810207,0.0, 1,10,7512946.208089587, 9,10
+3,63, 3, 4, 0,Tuesday
+2303,72183587.88924488,0.0, 1,10,7522205.598634495, 9,10
+3,64, 3, 5, 0,Wednesday
+2303,106961481.99518104,0.0, 1,10,7365413.6388823455, 9,10
+3,65, 3, 6, 0,Thursday
+2303,76496105.00088626,0.0, 1,10,7388810.845866741, 9,10
+3,66, 3, 7, 0,Friday
+2303,82757207.4030316,0.0, 1,10,7522340.698786156, 9,10
+3,67, 3, 8, 0,Saturday
+2303,94752280.84076136,0.0, 1,10,8251639.311282691, 9,10
+3,68, 3, 9, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,69, 3,10, 1,Monday
+2303,101442327.20693783,0.0, 1,10,7590672.522335637, 8,10
+3,70, 3,11, 1,Tuesday
+2303,84447875.71758857,0.0, 1,10,7450733.816195549, 8,10
+3,71, 3,12, 1,Wednesday
+2303,73160796.89912087,0.0, 1,10,7504980.683244006, 8,10
+3,72, 3,13, 1,Thursday
+2303,93673617.61270574,0.0, 1,10,7477932.172329798, 8,10
+3,73, 3,14, 1,Friday
+2303,74502076.32017982,0.0, 1,10,7428961.030130126, 8,10
+3,74, 3,15, 1,Saturday
+2303,99916180.69498098,0.0, 1,10,8251690.104342647, 8,10
+3,75, 3,16, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,76, 3,17, 1,Monday
+2303,76834989.26551911,0.0, 1,10,7473362.569177463, 8,10
+3,77, 3,18, 1,Tuesday
+2303,84485118.42285597,0.0, 1,10,7296562.106967287, 8,10
+3,78, 3,19, 1,Wednesday
+2303,102046396.62108116,0.0, 1,10,7684515.981631042, 8,10
+3,79, 3,20, 1,Thursday
+2303,54667638.20155562,0.0, 1,10,7572361.244666948, 8,10
+3,80, 3,21, 1,Friday
+2303,71007141.51301546,0.0, 1,10,7465196.768428309, 8,10
+3,81, 3,22, 1,Saturday
+2303,96067003.48621076,0.0, 1,10,8256470.127796745, 8,10
+3,82, 3,23, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,83, 3,24, 1,Monday
+2303,71741261.5432769,0.0, 1,10,7615223.700718317, 8,10
+3,84, 3,25, 1,Tuesday
+2303,77085587.49444732,0.0, 1,10,7543193.136563084, 8,10
+3,85, 3,26, 1,Wednesday
+2303,103948108.13070226,0.0, 1,10,7565088.613148614, 8,10
+3,86, 3,27, 1,Thursday
+2303,111022009.39237121,0.0, 1,10,6828562.189291805, 8,10
+3,87, 3,28, 1,Friday
+2303,88544122.28300811,0.0, 1,10,7456523.512072515, 8,10
+3,88, 3,29, 1,Saturday
+2303,102499971.57362032,0.0, 1,10,8254217.842553818, 8,10
+3,89, 3,30, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,90, 3,31, 1,Monday
+2303,70915426.71685548,0.0, 1,10,7605609.432495748, 8,10
+4,90, 3
+176,17180785862.96074,99999999999999.0, 1, 1,10,12870530.252384158,27,12,30
+188,12857130000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10476180000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2380950000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,23108197838.15819,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2160,14409068200.8233,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,3248138974.687599,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,7594366737.577595,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,6814701463.245693,99999999999999.0, 1, 1,10,27362735.803865172,27, 6,60
+2304,2275115443.0082803,0.0, 1, 1,10,8260635.807170971, 1, 9,10
+2388,4948748549.255021,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,3937065233.872385,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,17180785862.96074,99999999999999.0, 1, 1,10,12870530.252384156,27,12,30
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,17180785862.96074,99999999999999.0, 1, 1,10,12870530.252384156,27,12,30
+2771,4316708171.554341,99999999999999.0, 1, 1,10,11783051.171244262,28, 6,10
+2783,4093052753.1912527,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,8699129637.334839,99999999999999.0, 1, 1,10,-99999999999999.0,24, 7,10
+2839,7871467780.292188,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2855,17076513273.583126,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,9839334725.365242,99999999999999.0, 1, 1,10,-99999999999999.0, 6, 9,30
+2879,9839334725.365242,99999999999999.0, 1, 1,10,-99999999999999.0, 6, 9,30
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,827661857.0426503,99999999999999.0, 1, 1,10,40430093.6436375,28, 6,10
+3093,223655418.3631064,99999999999999.0, 1, 1,10,10060385.871079668,28, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7237178548.217901,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7237178548.217901,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,30.716378386093734,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,30.716378386093734,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,30.716378386093734,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,30.716378386093734,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,94493134372.08405,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3866,3749.9243406671003,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3878,857.8282276253555,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.3231310476335412,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.6004802204036056,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.04047034573822736,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.016441710969150928,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,7.771918052306191,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3956,0.7148569986587369,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.057289906717943866,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.015726853970492224,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,14.87823494023335,99999999999999.0, 1,14,10,0.011144097153438207,27,12,30
+4008,0.0042891419919524245,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.562582272653947,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4034,0.05432909774503752,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.35077320247532784,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4060,0.04074678061749499,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.21180903602559067,99999999999999.0, 1, 1,10,-99999999999999.0,24, 7,10
+4086,0.013582282974516021,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.019042633265358117,99999999999999.0, 1, 1,10,0.000014265283874774524,27,12,30
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.10328668136472371,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.03931713492623042,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.000059657245276587955,99999999999999.0, 1,14,10,-99999999999999.0,24, 7,10
+4164,0.0000018586247812100676,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.000003574284993293694,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.000003574284993293694,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,36092.3640937564,99999999999999.0, 1, 1,10,27.037637722393494,27,12,30
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,2892.096113041717,99999999999999.0, 1,14,10,2.1665371312236648,27,12,30
+4309,0.7226508272299352,99999999999999.0, 1, 1,10,0.0005413547091477739,27,12,30
+4323,0.02402863476907543,99999999999999.0, 1, 1,10,0.000018000414718258423,27,12,30
+4337,7.057061053647431,99999999999999.0, 1,14,10,0.005286610199810575,27,12,30
+4351,0.04156305274745273,99999999999999.0, 1,14,10,0.00003113585909482741,27,12,30
+4365,14.87394579824138,99999999999999.0, 1,14,10,0.01114242217413889,27,12,30
+4379,0.5082531749089149,99999999999999.0, 1, 1,10,0.0003807443917706922,27,12,30
+4393,0.3100264218578328,99999999999999.0, 1, 1,10,0.00023224807487775949,27,12,30
+4407,0.19822675305107565,99999999999999.0, 1, 1,10,0.00014849631689293268,27,12,30
+4421,0.019042633265358117,99999999999999.0, 1, 1,10,0.000014265283874774524,27,12,30
+4435,0.0639695464384914,99999999999999.0, 1,14,10,0.00004792108982877673,27,12,30
+4449,0.000057798620495378356,99999999999999.0, 1,14,10,4.329830425484639e-8,27,12,30
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,36092.3640937564,99999999999999.0, 1, 1,10,27.037637722393494,27,12,30
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1027.4830797952118,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+4557,1027.4830797952118,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3,91, 4, 1, 1,Tuesday
+2303,53680028.060273066,0.0, 1,10,7431874.227588666, 8,10
+3,92, 4, 2, 1,Wednesday
+2303,59943858.67800004,0.0, 1,10,7590757.346057352, 8,10
+3,93, 4, 3, 1,Thursday
+2303,83631907.44691947,0.0, 1,10,7472152.986979125, 8,10
+3,94, 4, 4, 1,Friday
+2303,61455568.024021834,0.0, 1,10,7438539.181430018, 8,10
+3,95, 4, 5, 1,Saturday
+2303,88617354.92153227,0.0, 1,10,8253688.301165193, 8,10
+3,96, 4, 6, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,97, 4, 7, 1,Monday
+2303,118508006.86533988,0.0, 1,10,7577335.476594347, 8,10
+3,98, 4, 8, 1,Tuesday
+2303,115727878.99258187,0.0, 1,10,7409869.561825797, 8,10
+3,99, 4, 9, 1,Wednesday
+2303,110765168.53783076,0.0, 1,10,7551709.34137675, 8,10
+3,100, 4,10, 1,Thursday
+2303,105548466.32147358,0.0, 1,10,7045578.990884189, 8,10
+3,101, 4,11, 1,Friday
+2303,76058468.83256502,0.0, 1,10,5274534.642219366, 8,10
+3,102, 4,12, 1,Saturday
+2303,155348250.85015124,0.0, 1,10,7549156.084381943, 8,10
+3,103, 4,13, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,104, 4,14, 1,Monday
+2303,79453167.88409895,0.0, 1,10,6055888.147547234, 8,10
+3,105, 4,15, 1,Tuesday
+2303,134367277.76674095,0.0, 1,10,4945448.253236251, 6,60
+3,106, 4,16, 1,Wednesday
+2303,134167450.82271497,0.0, 1,10,4705928.724276283, 6,60
+3,107, 4,17, 1,Thursday
+2303,128715076.60016191,0.0, 1,10,4680460.919031144, 6,60
+3,108, 4,18, 1,Friday
+2303,163272973.34631184,0.0, 1,10,4739931.575340424, 6,60
+3,109, 4,19, 1,Saturday
+2303,116026905.5800051,0.0, 1,10,5908962.304254576, 8,10
+3,110, 4,20, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,111, 4,21, 1,Monday
+2303,83425237.40623713,0.0, 1,10,7628454.565032201, 8,10
+3,112, 4,22, 1,Tuesday
+2303,93095214.62488213,0.0, 1,10,7291559.743200939, 8,10
+3,113, 4,23, 1,Wednesday
+2303,105221588.41194591,0.0, 1,10,6622511.247483033, 8,10
+3,114, 4,24, 1,Thursday
+2303,114590697.5106337,0.0, 1,10,5429274.049446355, 8,10
+3,115, 4,25, 1,Friday
+2303,86705684.29322681,0.0, 1,10,6610079.118876583, 8,10
+3,116, 4,26, 1,Saturday
+2303,82990867.46460369,0.0, 1,10,7598913.299817913, 8,10
+3,117, 4,27, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,118, 4,28, 1,Monday
+2303,102302208.18134925,0.0, 1,10,7736220.312692861, 8,10
+3,119, 4,29, 1,Tuesday
+2303,105183579.79863846,0.0, 1,10,7083404.138414455, 8,10
+3,120, 4,30, 1,Wednesday
+2303,106425075.79290055,0.0, 1,10,5210236.7369019175, 8,10
+4,120, 4
+176,19885129720.593067,99999999999999.0, 1, 1,10,18168684.13492385,18,14,60
+188,13204620000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3301155000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10759320000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2689830000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3301155000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2689830000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3301155000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2689830000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3301155000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2689830000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2445300000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,29818803109.902557,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2160,16468720947.535301,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,3816454038.391782,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,4898686184.606084,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,11570034762.92921,99999999999999.0, 1, 1,10,29701043.62322148, 8,17,20
+2304,2665227963.015138,0.0, 1, 1,10,8253688.301165193, 5, 8,10
+2388,5578057820.221675,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,4408981125.906681,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,19885129720.593067,99999999999999.0, 1, 1,10,18168684.13492385,18,14,60
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,19885129720.593067,99999999999999.0, 1, 1,10,18168684.13492385,18,14,60
+2771,6673487364.370311,99999999999999.0, 1, 1,10,13197594.178922838,16, 6,10
+2783,4134396720.3952055,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,13350082162.367287,99999999999999.0, 1, 1,10,59645877.82417211, 9, 6,10
+2839,4950645693.130287,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2855,13503261514.96351,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,6188307116.412841,99999999999999.0, 1, 1,10,-99999999999999.0, 6, 9,30
+2879,6188307116.412841,99999999999999.0, 1, 1,10,-99999999999999.0, 6, 9,30
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,8399436469.237004,99999999999999.0, 1, 1,10,44822618.57634056,17, 6,10
+3093,2539090643.9755626,99999999999999.0, 1, 1,10,11474928.878758242,16, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7314954398.550674,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7314954398.550674,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,31.104778661237837,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,31.104778661237837,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,31.104778661237837,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,31.104778661237837,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,103105656035.95784,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3866,4025.6549871730645,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3878,678.3281052146693,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.3112298139401541,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.4748300382383293,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.04081215645551511,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.013001291271406229,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,8.733152210175424,99999999999999.0, 1,14,10,0.007780527291655271,18,15,10
+3956,0.5652735335394027,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.06054130826760538,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.012436017737866883,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,17.218572833392432,99999999999999.0, 1,14,10,0.015730293612162282,18,14,60
+4008,0.0033916412012364133,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.6312155942713756,99999999999999.0, 1, 1,10,0.0005616387390352778,18,15,10
+4034,0.042960761542471616,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.3910467089503246,99999999999999.0, 1, 1,10,0.0003460166145739354,18,15,10
+4060,0.032220537398700046,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.2401688583145316,99999999999999.0, 1, 1,10,0.00021562210908017412,18,15,10
+4086,0.010740197137248622,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.02204004145815502,99999999999999.0, 1, 1,10,0.000020137588097257274,18,14,60
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.10512872565081725,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.031090044344667018,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00006836612844017638,99999999999999.0, 1,14,10,6.192421819885744e-8,18,15,10
+4164,0.00000146970848655015,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.000002826367667697026,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.000002826367667697026,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,41773.4874092399,99999999999999.0, 1, 1,10,38.16768150959992,18,14,60
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,3347.326881958388,99999999999999.0, 1,14,10,3.0583921588230707,18,14,60
+4309,0.8363997757018219,99999999999999.0, 1, 1,10,0.0007642033795489889,18,14,60
+4323,0.027810865184107796,99999999999999.0, 1, 1,10,0.000025410285582685256,18,14,60
+4337,8.167878676636038,99999999999999.0, 1,14,10,0.007462843331340788,18,14,60
+4351,0.04810529052973891,99999999999999.0, 1,14,10,0.00004395293574315825,18,14,60
+4365,17.215181192191167,99999999999999.0, 1,14,10,0.01572920035228541,18,14,60
+4379,0.5882548327289024,99999999999999.0, 1, 1,10,0.000537477823724005,18,14,60
+4393,0.3588261715516247,99999999999999.0, 1, 1,10,0.0003278529967804941,18,14,60
+4407,0.22942866117728408,99999999999999.0, 1, 1,10,0.00020962482694351087,18,14,60
+4421,0.02204004145815502,99999999999999.0, 1, 1,10,0.000020137588097257274,18,14,60
+4435,0.07403868130614882,99999999999999.0, 1,14,10,0.00006764780684456054,18,14,60
+4449,0.00006689641995362643,99999999999999.0, 1,14,10,6.112205155171512e-8,18,14,60
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,41773.4874092399,99999999999999.0, 1, 1,10,38.16768150959992,18,14,60
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1102.9394477166538,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+4557,1102.9394477166538,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3,121, 5, 1, 1,Thursday
+2303,130659116.64502244,0.0, 1,10,5716801.9733614875, 8,10
+3,122, 5, 2, 1,Friday
+2303,110885039.62241912,0.0, 1,10,7017517.574642281, 8,10
+3,123, 5, 3, 1,Saturday
+2303,33347275.303168323,0.0, 1,10,5127155.104802178, 8,10
+3,124, 5, 4, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,125, 5, 5, 1,Monday
+2303,132667501.73881535,0.0, 1,10,2636387.045570389,14,60
+3,126, 5, 6, 1,Tuesday
+2303,99930523.19372486,0.0, 1,10,3874083.212188442, 8,10
+3,127, 5, 7, 1,Wednesday
+2303,91430788.85967304,0.0, 1,10,5312954.562562718, 8,10
+3,128, 5, 8, 1,Thursday
+2303,95778331.42615427,0.0, 1,10,6449745.409187181, 8,10
+3,129, 5, 9, 1,Friday
+2303,118927854.07322372,0.0, 1,10,5194532.3813119875, 8,10
+3,130, 5,10, 1,Saturday
+2303,52257378.271215335,0.0, 1,10,6920029.1535629295, 8,10
+3,131, 5,11, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,132, 5,12, 1,Monday
+2303,125288886.95090039,0.0, 1,10,5025515.712902652, 8,10
+3,133, 5,13, 1,Tuesday
+2303,113250178.7218555,0.0, 1,10,6666813.940178997, 8,10
+3,134, 5,14, 1,Wednesday
+2303,127519966.14690995,0.0, 1,10,4929636.492738301, 8,10
+3,135, 5,15, 1,Thursday
+2303,120618882.47096719,0.0, 1,10,5394300.9306804715, 8,10
+3,136, 5,16, 1,Friday
+2303,141603147.28061202,0.0, 1,10,4941628.2424772605, 8,10
+3,137, 5,17, 1,Saturday
+2303,152759983.7493006,0.0, 1,10,7391882.353843506, 8,10
+3,138, 5,18, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,139, 5,19, 1,Monday
+2303,144426538.65180823,0.0, 1,10,6237487.462810589, 8,10
+3,140, 5,20, 1,Tuesday
+2303,95580149.63264349,0.0, 1,10,4384205.720755324, 8,10
+3,141, 5,21, 1,Wednesday
+2303,106999449.8742875,0.0, 1,10,5424818.527275145, 8,10
+3,142, 5,22, 1,Thursday
+2303,103429940.71757783,0.0, 1,10,2254485.094184508,16,20
+3,143, 5,23, 1,Friday
+2303,141584368.91787103,0.0, 1,10,4903529.164120548,21,50
+3,144, 5,24, 1,Saturday
+2303,81260712.56863326,0.0, 1,10,8229361.469879106, 8,10
+3,145, 5,25, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,146, 5,26, 1,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,147, 5,27, 1,Tuesday
+2303,103213562.28141302,0.0, 1,10,2874344.9218712593, 8,10
+3,148, 5,28, 1,Wednesday
+2303,181495968.12492204,0.0, 1,10,4903525.170455333, 6,50
+3,149, 5,29, 1,Thursday
+2303,177522515.55236408,0.0, 1,10,5407342.42296124, 8,10
+3,150, 5,30, 1,Friday
+2303,140849970.00910154,0.0, 1,10,4655129.044907587, 6,60
+3,151, 5,31, 1,Saturday
+2303,58219541.20534291,0.0, 1,10,4693891.265380947, 7,50
+4,151, 5
+176,20586066802.73799,99999999999999.0, 1, 1,10,18468391.748040553,29, 9,10
+188,12857130000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10476180000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2380950000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,32191913811.36105,99999999999999.0, 1, 1,10,85240849.33891658,24, 8,10
+2160,18228932714.35361,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,4132817797.622335,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,2147504068.888147,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,16081428645.465508,99999999999999.0, 1, 1,10,29839796.437956408, 1,19,30
+2304,2981507571.989928,0.0, 1, 1,10,8229361.469879106,24, 8,10
+2388,6096772834.302064,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,5017834510.439338,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,20586066802.73799,99999999999999.0, 1, 1,10,18468391.74804055,29, 9,10
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,20586066802.73799,99999999999999.0, 1, 1,10,18468391.74804055,29, 9,10
+2771,7721995379.232369,99999999999999.0, 1, 1,10,-99999999999999.0,16, 6,10
+2783,4093052753.1912527,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,13962981097.007431,99999999999999.0, 1, 1,10,-99999999999999.0, 9, 6,10
+2839,1872750850.9568934,99999999999999.0, 1, 1,10,42485650.05390657,24, 8,10
+2855,9571588048.708027,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,2340938563.6961164,99999999999999.0, 1, 1,10,53107062.5673832,24, 8,10
+2879,2340938563.6961164,99999999999999.0, 1, 1,10,53107062.5673832,24, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,12090230246.050535,99999999999999.0, 1, 1,10,-99999999999999.0,17, 6,10
+3093,3628942626.041302,99999999999999.0, 1, 1,10,-99999999999999.0,16, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7230649485.011915,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7230649485.011915,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,30.711698864706648,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,30.711698864706648,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,30.711698864706648,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,30.711698864706648,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,102332405061.84645,99999999999999.0, 1, 1,10,109160899.00119972,29, 9,10
+3866,3946.1407285226724,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3878,480.82288695813776,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.202458569151624,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.33657627930357453,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.03800695279929159,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.009215773834585342,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,8.856476574926926,99999999999999.0, 1,14,10,0.008671946804514028,29, 9,10
+3956,0.4006858188950163,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.058616056796133374,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.008815088015690347,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,17.82440854854172,99999999999999.0, 1,14,10,0.015995182629631545,29, 9,10
+4008,0.0024041149133700954,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.6394425121948693,0.000013179070574999999,17,18,10,0.0006288797380519087,29, 9,10
+4034,0.030452103092844986,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.3943135995427342,99999999999999.0, 1, 1,10,0.0003951629674980425,29, 9,10
+4060,0.022839053390663777,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.24512889350894726,0.0000051400453499999995,17,18,10,0.00023371671866921455,29, 9,10
+4086,0.007613030559005305,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.022816937690017875,99999999999999.0, 1, 1,10,0.00002046977442499221,29, 9,10
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.09868621370112998,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.022037720039225807,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.0000702962537467733,99999999999999.0, 1,14,10,6.495389950114231e-8,29, 9,10
+4164,0.0000010417812148094314,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.0000020034290944750873,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.0000020034290944750873,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,43245.973975185254,99999999999999.0, 1, 1,10,38.797289280778706,29, 9,10
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,3465.317841564488,99999999999999.0, 1,14,10,3.1088428908127237,29, 9,10
+4309,0.8658822898480568,99999999999999.0, 1, 1,10,0.00077680955229763,29, 9,10
+4323,0.02879117896470573,99999999999999.0, 1, 1,10,0.00002582944945740756,29, 9,10
+4337,8.455790756031956,99999999999999.0, 1,14,10,0.007585949162522075,29, 9,10
+4351,0.049800968780443176,99999999999999.0, 1,14,10,0.00004467797611279803,29, 9,10
+4365,17.82200443362833,99999999999999.0, 1,14,10,0.015988666643779594,29, 9,10
+4379,0.6089904091020242,0.000013179070574999999,17,18,10,0.0005463439691451718,29, 9,10
+4393,0.37147454615207176,99999999999999.0, 1, 1,10,0.00033326120567380433,29, 9,10
+4407,0.23751586294994456,0.0000051400453499999995,17,18,10,0.00021308276347136744,29, 9,10
+4421,0.022816937690017875,99999999999999.0, 1, 1,10,0.00002046977442499221,29, 9,10
+4435,0.07664849366190246,99999999999999.0, 1,14,10,0.0000687637138949226,29, 9,10
+4449,0.00006925447253196386,99999999999999.0, 1,14,10,6.213031082042838e-8,29, 9,10
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,43245.973975185254,99999999999999.0, 1, 1,10,38.797289280778706,29, 9,10
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1081.0828930211142,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+4557,1081.0828930211142,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3,152, 6, 1, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,153, 6, 2, 1,Monday
+2303,129501068.36111113,0.0, 1,10,4953878.549951456, 6,60
+3,154, 6, 3, 1,Tuesday
+2303,115510830.603906,0.0, 1,10,4834416.022637967, 6,20
+3,155, 6, 4, 1,Wednesday
+2303,123417546.32773437,0.0, 1,10,2571325.2306021033,15,30
+3,156, 6, 5, 1,Thursday
+2303,151740670.30742,0.0, 1,10,4859326.520109274, 7,50
+3,157, 6, 6, 1,Friday
+2303,115965023.04469919,0.0, 1,10,2776938.965595462, 8,10
+3,158, 6, 7, 1,Saturday
+2303,68280503.84925567,0.0, 1,10,4684559.935981241,15,60
+3,159, 6, 8, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,160, 6, 9, 1,Monday
+2303,197278530.36262313,0.0, 1,10,4763767.1980233975,19,10
+3,161, 6,10, 1,Tuesday
+2303,172649122.6442609,0.0, 1,10,4911165.651038023,21,20
+3,162, 6,11, 1,Wednesday
+2303,117495117.79762326,0.0, 1,10,5308118.987645233, 8,10
+3,163, 6,12, 1,Thursday
+2303,120992172.36258924,0.0, 1,10,4910977.179794561, 6,20
+3,164, 6,13, 1,Friday
+2303,139615925.6539164,0.0, 1,10,6016677.500551169, 8,10
+3,165, 6,14, 1,Saturday
+2303,58856909.73465224,0.0, 1,10,5328706.444916575, 8,10
+3,166, 6,15, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,167, 6,16, 1,Monday
+2303,167655218.9978207,0.0, 1,10,4755399.482751941, 6,40
+3,168, 6,17, 1,Tuesday
+2303,172498324.91772386,0.0, 1,10,4934053.632756001,19,30
+3,169, 6,18, 1,Wednesday
+2303,145925250.94889233,0.0, 1,10,7331452.819289463, 8,10
+3,170, 6,19, 1,Thursday
+2303,192903657.39385894,0.0, 1,10,4874011.238344861, 7,30
+3,171, 6,20, 1,Friday
+2303,186078524.54362318,0.0, 1,10,4535050.168755035,20,10
+3,172, 6,21, 1,Saturday
+2303,51155455.73768692,0.0, 1,10,4608996.021631835, 6,50
+3,173, 6,22, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,174, 6,23, 1,Monday
+2303,131576853.91058762,0.0, 1,10,4385270.696001133, 8,10
+3,175, 6,24, 1,Tuesday
+2303,100922442.31358969,0.0, 1,10,3152661.7783619356, 8,10
+3,176, 6,25, 1,Wednesday
+2303,103820617.99596491,0.0, 1,10,2657313.907979216, 8,10
+3,177, 6,26, 1,Thursday
+2303,112612716.8369063,0.0, 1,10,2587110.5110959476,16,30
+3,178, 6,27, 1,Friday
+2303,144493581.4119492,0.0, 1,10,4638469.060574131,20,60
+3,179, 6,28, 1,Saturday
+2303,64891749.960450135,0.0, 1,10,4824287.604912189, 6,50
+3,180, 6,29, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,181, 6,30, 1,Monday
+2303,177650823.15725222,0.0, 1,10,4851648.681717297, 6,50
+4,181, 6
+176,23196033871.30057,99999999999999.0, 1, 1,10,19208679.6968796,13, 9,10
+188,12707442000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10354212000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2353230000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,41952247793.44038,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2160,20108430116.386024,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,4202097389.2055,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,1617640349.9516146,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,18490789766.434418,99999999999999.0, 1, 1,10,30057437.9259845,30,20,20
+2304,3263488639.1761007,0.0, 1, 1,10,7331452.819289463,18, 8,10
+2388,6668839716.786538,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,5974004371.21794,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,23196033871.30057,99999999999999.0, 1, 1,10,19208679.6968796,13, 9,10
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,23196033871.30057,99999999999999.0, 1, 1,10,19208679.6968796,13, 9,10
+2771,10481785636.066961,99999999999999.0, 1, 1,10,14082548.355487317,20, 6,10
+2783,3969020851.5793943,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,21843817677.054306,99999999999999.0, 1, 1,10,-99999999999999.0, 9, 6,10
+2839,913727720.774963,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2855,8231988019.450353,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,1142159650.968704,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2879,1142159650.968704,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,20930089956.27932,99999999999999.0, 1, 1,10,45877995.89312666,10, 6,10
+3093,6512764784.487776,99999999999999.0, 1, 1,10,12359883.055322722,20, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7089828368.481649,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7089828368.481649,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,112753316643.5325,99999999999999.0, 1, 1,10,117783847.06945795,13, 9,10
+3866,4318.190763235691,99999999999999.0, 1,14,10,4.802254615265269,13, 9,10
+3878,413.5288966443956,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.2651320523148515,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.28947044991475357,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.040367388364404254,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.007925972096815281,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,9.872450302812044,99999999999999.0, 1,14,10,0.009197355583306699,13, 9,10
+3956,0.3446074824702311,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.06369625871840516,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.007581364614345078,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,20.083602522743625,99999999999999.0, 1,14,10,0.016637401151236592,13, 9,10
+4008,0.0020676448948213867,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.7123903036065801,99999999999999.0,17,18,10,0.0006676007306447045,13, 9,10
+4034,0.0261901522037615,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.4382138649787847,99999999999999.0, 1, 1,10,0.0004211373982797236,13, 9,10
+4060,0.019642593572851103,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.2741764221638381,99999999999999.0,17,18,10,0.0002464632699059082,13, 9,10
+4086,0.00654754216693439,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.025709741669866858,99999999999999.0, 1, 1,10,0.00002129028589827105,13, 9,10
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.10531964517352149,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.018953411535862663,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00007893075278392466,99999999999999.0, 1,14,10,6.801979930794886e-8,13, 9,10
+4164,8.959778080249989e-7,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.0000017230374123511577,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.0000017230374123511577,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,48728.83619479801,0.9358796699999999,28,18,20,40.35244178642285,13, 9,10
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,3904.6618665913625,99999999999999.0, 1,14,10,3.233457906473023,13, 9,10
+4309,0.9756616024000981,99999999999999.0, 1, 1,10,0.0008079472256778801,13, 9,10
+4323,0.03244141626758788,99999999999999.0, 1, 1,10,0.00002686479841574308,13, 9,10
+4337,9.527842820341808,99999999999999.0, 1,14,10,0.007890024732400356,13, 9,10
+4351,0.05611489410406008,99999999999999.0, 1,14,10,0.000046468850366823564,13, 9,10
+4365,20.08153487784875,99999999999999.0, 1,14,10,0.016629557166131154,13, 9,10
+4379,0.6862001514028282,99999999999999.0,17,18,10,0.0005682436484348953,13, 9,10
+4393,0.41857127140593425,99999999999999.0, 1, 1,10,0.0003466196646962075,13, 9,10
+4407,0.2676288799969034,99999999999999.0,17,18,10,0.00022162398373868773,13, 9,10
+4421,0.025709741669866858,99999999999999.0, 1, 1,10,0.00002129028589827105,13, 9,10
+4435,0.08636623363765866,99999999999999.0, 1,14,10,0.00007152004208030606,13, 9,10
+4449,0.00007803477497589965,99999999999999.0, 1,14,10,6.462074534149963e-8,13, 9,10
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,48728.83619479801,0.9358796699999999,28,18,20,40.35244178642285,13, 9,10
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1182.9658542681607,99999999999999.0, 1,14,10,1.3160050774479295,13, 9,10
+4557,1182.9658542681607,99999999999999.0, 1,14,10,1.3160050774479295,13, 9,10
+3,182, 7, 1, 1,Tuesday
+2303,255216647.58268636,0.0, 1,10,6471645.34481023, 8,10
+3,183, 7, 2, 1,Wednesday
+2303,155313791.57139185,0.0, 1,10,6548470.902052173, 8,10
+3,184, 7, 3, 1,Thursday
+2303,114661637.93147108,0.0, 1,10,4907730.422115193, 6,40
+3,185, 7, 4, 1,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,186, 7, 5, 1,Saturday
+2303,89676428.16030252,0.0, 1,10,4629945.21362575, 7,10
+3,187, 7, 6, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,188, 7, 7, 1,Monday
+2303,159965449.28097993,0.0, 1,10,4773602.246166876,19,40
+3,189, 7, 8, 1,Tuesday
+2303,238696963.41453484,0.0, 1,10,4778327.036677577, 7,10
+3,190, 7, 9, 1,Wednesday
+2303,128822241.79939242,0.0, 1,10,4713493.982050631, 7,20
+3,191, 7,10, 1,Thursday
+2303,188322501.30218068,0.0, 1,10,4945444.54257446, 6,60
+3,192, 7,11, 1,Friday
+2303,180740525.80130088,0.0, 1,10,4675717.175332, 7,10
+3,193, 7,12, 1,Saturday
+2303,72172623.31391495,0.0, 1,10,4709008.149458628, 7,10
+3,194, 7,13, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,195, 7,14, 1,Monday
+2303,149401397.15615913,0.0, 1,10,4859040.6318607535,21,60
+3,196, 7,15, 1,Tuesday
+2303,251272058.64449725,0.0, 1,10,4817803.97026496,21,20
+3,197, 7,16, 1,Wednesday
+2303,286547059.61277264,0.0, 1,10,4599070.765415836, 7,30
+3,198, 7,17, 1,Thursday
+2303,260268195.90969902,0.0, 1,10,4566462.151407536,18,10
+3,199, 7,18, 1,Friday
+2303,295736277.11538017,0.0, 1,10,4593558.156003585, 7,20
+3,200, 7,19, 1,Saturday
+2303,112270603.20301339,0.0, 1,10,4587440.245405353,17,30
+3,201, 7,20, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,202, 7,21, 1,Monday
+2303,174820719.59959617,0.0, 1,10,4808141.289702437,19,10
+3,203, 7,22, 1,Tuesday
+2303,177117751.80785143,0.0, 1,10,4780885.615620151, 7,10
+3,204, 7,23, 1,Wednesday
+2303,190339212.85654047,0.0, 1,10,4736902.247615126, 6,60
+3,205, 7,24, 1,Thursday
+2303,239242817.3619031,0.0, 1,10,4655512.174732178, 7,10
+3,206, 7,25, 1,Friday
+2303,205252362.7515261,0.0, 1,10,4775629.053751862,21,50
+3,207, 7,26, 1,Saturday
+2303,49553489.02921783,0.0, 1,10,4758890.996672379, 7,10
+3,208, 7,27, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,209, 7,28, 1,Monday
+2303,218487964.3956638,0.0, 1,10,4703727.30526324, 7,10
+3,210, 7,29, 1,Tuesday
+2303,134763652.00454333,0.0, 1,10,4591898.630067129, 6,60
+3,211, 7,30, 1,Wednesday
+2303,151446958.83162123,0.0, 1,10,4888056.92093112, 6,60
+3,212, 7,31, 1,Thursday
+2303,187869501.73824483,0.0, 1,10,4668849.858711763, 6,60
+4,212, 7
+176,28037875585.651295,99999999999999.0, 1, 1,10,21069923.52302788, 1,16,40
+188,13268772000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10811592000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2457180000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,60244025929.243744,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2160,25231718999.139492,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,5694737083.22538,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,1492863077.1764781,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,23738855921.963013,99999999999999.0, 1, 1,10,-99999999999999.0,30,20,20
+2304,4667978832.176373,0.0, 1, 1,10,6548470.902052173, 2, 8,10
+2388,7748789492.689992,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,7120213591.047745,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,28037875585.651295,99999999999999.0, 1, 1,10,21069923.523027875, 1,16,40
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,28037875585.651295,99999999999999.0, 1, 1,10,21069923.523027875, 1,16,40
+2771,14762009401.37867,99999999999999.0, 1, 1,10,14632662.393858109,18, 6,10
+2783,4134396720.3952055,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,35012306930.10424,99999999999999.0, 1, 1,10,63235986.96079901, 1,16,40
+2839,867504184.043165,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2855,8474155514.386043,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,1084380230.0539548,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2879,1084380230.0539548,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,34144802746.061096,99999999999999.0, 1, 1,10,48480860.506457955, 7, 6,10
+3093,10627612680.983541,99999999999999.0, 1, 1,10,12909997.093693517,18, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7389775284.33209,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7389775284.33209,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,31.36917161961906,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,31.36917161961906,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,31.36917161961906,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,31.36917161961906,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,134812822903.33264,99999999999999.0, 1, 1,10,122487282.38409361, 1,16,40
+3866,5145.398454352806,99999999999999.0, 1,14,10,4.9305338810717325, 1,16,40
+3878,425.69403303031856,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.477303118520608,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.2979860519234221,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.04737223714237344,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.008159137257294231,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,11.871389412363776,99999999999999.0, 1,14,10,0.009807675720833953, 1,16,40
+3956,0.3547450981432299,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.07563247122305938,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.0078043921591510424,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,24.275397754380922,99999999999999.0, 1,14,10,0.01824781322538578, 1,16,40
+4008,0.0021284705888593744,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.8563952707044357,99999999999999.0,17,18,10,0.0007109427061071238, 1,16,40
+4034,0.026960610510574266,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.526162499746849,99999999999999.0, 1, 1,10,0.00044593454736031185, 1,16,40
+4060,0.020220436697542036,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.330232754009293,99999999999999.0,17,18,10,0.000265008103654398, 1,16,40
+4086,0.006740156864721356,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.031076284087118395,99999999999999.0, 1, 1,10,0.000023353228995371356, 1,16,40
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.12390493528557184,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.019510980397877464,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00009524575844668211,99999999999999.0, 1,14,10,7.388039244545524e-8, 1,16,40
+4164,9.223355603412931e-7,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.0000017737254907161517,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.0000017737254907161517,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,58900.28675780362,99999999999999.0,28,18,20,44.262431141765575, 1,16,40
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,4719.704421322577,99999999999999.0, 1,14,10,3.546766976149003, 1,16,40
+4309,1.1793170665971868,99999999999999.0, 1, 1,10,0.0008862340631584835, 1,16,40
+4323,0.039213099885078866,99999999999999.0, 1, 1,10,0.00002946788936114223, 1,16,40
+4337,11.516644314220583,99999999999999.0, 1,14,10,0.00865453640384662, 1,16,40
+4351,0.06782807906390723,99999999999999.0, 1,14,10,0.0000509714951200446, 1,16,40
+4365,24.27326928379206,99999999999999.0, 1,14,10,0.018240894389483855, 1,16,40
+4379,0.8294346601938639,99999999999999.0,17,18,10,0.0006233041731085005, 1,16,40
+4393,0.5059420630493071,99999999999999.0, 1, 1,10,0.00038020571647686183, 1,16,40
+4407,0.323492597144571,99999999999999.0,17,18,10,0.00024309845663163867, 1,16,40
+4421,0.031076284087118395,99999999999999.0, 1, 1,10,0.000023353228995371356, 1,16,40
+4435,0.10439395488769347,99999999999999.0, 1,14,10,0.00007845004658183662, 1,16,40
+4449,0.00009432342288634107,99999999999999.0, 1,14,10,7.088223573052957e-8, 1,16,40
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,58900.28675780362,99999999999999.0,28,18,20,44.262431141765575, 1,16,40
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1409.5529079648434,99999999999999.0, 1,14,10,1.351070558091513, 1,16,40
+4557,1409.5529079648434,99999999999999.0, 1,14,10,1.351070558091513, 1,16,40
+3,213, 8, 1, 1,Friday
+2303,169861012.167704,0.0, 1,10,4825942.253287989, 7,60
+3,214, 8, 2, 1,Saturday
+2303,64521385.56050145,0.0, 1,10,4927238.907858677, 6,60
+3,215, 8, 3, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,216, 8, 4, 1,Monday
+2303,309429011.4313954,0.0, 1,10,4580561.605396271, 7,20
+3,217, 8, 5, 1,Tuesday
+2303,173023768.58716184,0.0, 1,10,4739529.244971376, 7,10
+3,218, 8, 6, 1,Wednesday
+2303,168605077.8172504,0.0, 1,10,4912864.574111153,21,40
+3,219, 8, 7, 1,Thursday
+2303,130081964.1876221,0.0, 1,10,4736812.283795072, 6,30
+3,220, 8, 8, 1,Friday
+2303,158531702.73289526,0.0, 1,10,4899625.944254746,19,60
+3,221, 8, 9, 1,Saturday
+2303,68642802.6268511,0.0, 1,10,6943522.751058222, 8,10
+3,222, 8,10, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,223, 8,11, 1,Monday
+2303,188989702.23757726,0.0, 1,10,4846527.499528347, 6,60
+3,224, 8,12, 1,Tuesday
+2303,199353302.15035588,0.0, 1,10,4876353.864747418, 6,60
+3,225, 8,13, 1,Wednesday
+2303,198989835.76340425,0.0, 1,10,5111949.365515023, 8,10
+3,226, 8,14, 1,Thursday
+2303,186801290.84171414,0.0, 1,10,4887738.966265908,19,60
+3,227, 8,15, 1,Friday
+2303,193318065.54149935,0.0, 1,10,6476999.613324311, 8,10
+3,228, 8,16, 1,Saturday
+2303,66839578.44761871,0.0, 1,10,6742067.175128381, 8,10
+3,229, 8,17, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,230, 8,18, 1,Monday
+2303,143345844.2029886,0.0, 1,10,4876349.3252805155,21,50
+3,231, 8,19, 1,Tuesday
+2303,160166759.56577972,0.0, 1,10,5661921.897824563, 8,10
+3,232, 8,20, 1,Wednesday
+2303,173202244.5423275,0.0, 1,10,4767250.126207741,19,60
+3,233, 8,21, 1,Thursday
+2303,175243098.04583552,0.0, 1,10,4874312.748017697, 6,60
+3,234, 8,22, 1,Friday
+2303,252376064.87334287,0.0, 1,10,4781633.32569897,21,30
+3,235, 8,23, 1,Saturday
+2303,73205833.26996242,0.0, 1,10,4745242.232390607,17,10
+3,236, 8,24, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,237, 8,25, 1,Monday
+2303,157976633.38817364,0.0, 1,10,4828394.804166782,20,60
+3,238, 8,26, 1,Tuesday
+2303,158360683.41887897,0.0, 1,10,4799415.985900599, 6,60
+3,239, 8,27, 1,Wednesday
+2303,201191829.34312433,0.0, 1,10,4800549.217025308,20,20
+3,240, 8,28, 1,Thursday
+2303,228317773.58158317,0.0, 1,10,4735707.451571217,19,40
+3,241, 8,29, 1,Friday
+2303,172215874.5799792,0.0, 1,10,4718976.364138189,18,60
+3,242, 8,30, 1,Saturday
+2303,60651180.358813755,0.0, 1,10,5039020.049388813, 8,10
+3,243, 8,31, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+4,243, 8
+176,26217938622.162453,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+188,12857130000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10476180000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3214282500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2619045000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2380950000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,56193874468.78968,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2160,24235330731.912506,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,5635575898.313814,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,1877970065.2296972,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,22357360666.682877,99999999999999.0, 1, 1,10,30349930.902125664,11,21,10
+2304,4233242319.2643337,0.0, 1, 1,10,6943522.751058222, 9, 8,10
+2388,7731842502.165909,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,6634670012.16845,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,26217938622.162453,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,26217938622.162453,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+2771,13353866318.575708,99999999999999.0, 1, 1,10,14855460.270801073, 4, 6,10
+2783,4093052753.1912527,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,31958543736.877174,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+2839,1025939473.49084,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2855,8513990578.2696,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,1282424341.8635495,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2879,1282424341.8635495,99999999999999.0, 1, 1,10,-99999999999999.0,24, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,30932604263.386333,99999999999999.0, 1, 1,10,49719951.25607379, 4, 6,10
+3093,9260813565.384571,99999999999999.0, 1, 1,10,13132794.970636478, 4, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7231566236.406058,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7231566236.406058,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,30.711698864706623,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,30.711698864706623,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,30.711698864706623,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,30.711698864706623,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,126652022009.73479,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+3866,4841.043789863239,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+3878,427.69512316512015,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.4021544767051357,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.29938681609333,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.04486527121894435,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.008197491492512997,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,11.125512238250407,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+3956,0.35641267358752315,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.07126644099817654,99999999999999.0, 1,14,10,-99999999999999.0,27, 9,10
+3982,0.007841078818925509,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,22.69983118452029,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4008,0.00213847604152514,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.8026834481455719,99999999999999.0,17,18,10,-99999999999999.0, 1,16,40
+4034,0.02708734616467052,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.4934168798785252,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+4060,0.020315488338526543,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.3092665512390852,99999999999999.0,17,18,10,-99999999999999.0, 1,16,40
+4086,0.006771840798162925,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.029059124194770112,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.11722044606004636,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.019602697047313704,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00008912756593870776,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4164,9.266712485294453e-7,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.0000017820633679376183,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.0000017820633679376183,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,55077.07238112376,99999999999999.0,28,18,20,-99999999999999.0, 1,16,40
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,4413.34866669812,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4309,1.1027676606118062,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+4323,0.03666777972643029,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+4337,10.769099564662863,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4351,0.06342536217925088,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4365,22.69769270847877,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4379,0.775596101980901,99999999999999.0,17,18,10,-99999999999999.0, 1,16,40
+4393,0.47310139153999825,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+4407,0.30249471044092235,99999999999999.0,17,18,10,-99999999999999.0, 1,16,40
+4421,0.029059124194770112,99999999999999.0, 1, 1,10,-99999999999999.0, 1,16,40
+4435,0.09761774901273326,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4449,0.00008820089469017853,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,55077.07238112376,99999999999999.0,28,18,20,-99999999999999.0, 1,16,40
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1326.187208118205,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+4557,1326.187208118205,99999999999999.0, 1,14,10,-99999999999999.0, 1,16,40
+3,244, 9, 1, 1,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,245, 9, 2, 1,Tuesday
+2303,163328386.81483608,0.0, 1,10,5890429.236874197, 8,10
+3,246, 9, 3, 1,Wednesday
+2303,120513778.12315239,0.0, 1,10,5753148.374336236, 8,10
+3,247, 9, 4, 1,Thursday
+2303,150638628.75844422,0.0, 1,10,7293373.2133944845, 8,10
+3,248, 9, 5, 1,Friday
+2303,147538267.83313692,0.0, 1,10,4909517.579780025, 7,30
+3,249, 9, 6, 1,Saturday
+2303,66652379.1792666,0.0, 1,10,4874936.244948802, 6,60
+3,250, 9, 7, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,251, 9, 8, 1,Monday
+2303,166741082.51403368,0.0, 1,10,4850621.707977803, 7,40
+3,252, 9, 9, 1,Tuesday
+2303,162356768.895373,0.0, 1,10,6380960.816956999, 8,10
+3,253, 9,10, 1,Wednesday
+2303,139416402.6711939,0.0, 1,10,6303182.814761707, 8,10
+3,254, 9,11, 1,Thursday
+2303,169302990.57125974,0.0, 1,10,6004869.383253124, 8,10
+3,255, 9,12, 1,Friday
+2303,152710634.667932,0.0, 1,10,7235919.769975118, 8,10
+3,256, 9,13, 1,Saturday
+2303,94708601.76126118,0.0, 1,10,7961780.986464694, 8,10
+3,257, 9,14, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,258, 9,15, 1,Monday
+2303,181728683.0171053,0.0, 1,10,4823591.897094701,21,30
+3,259, 9,16, 1,Tuesday
+2303,174297771.7701199,0.0, 1,10,4758625.602254372,20,50
+3,260, 9,17, 1,Wednesday
+2303,186342307.65760213,0.0, 1,10,4902031.568451876,19,50
+3,261, 9,18, 1,Thursday
+2303,227034975.47837377,0.0, 1,10,8041053.23049312, 8,10
+3,262, 9,19, 1,Friday
+2303,153404546.0364653,0.0, 1,10,6256897.689696298, 8,10
+3,263, 9,20, 1,Saturday
+2303,133181362.64581524,0.0, 1,10,7974527.102940269, 8,10
+3,264, 9,21, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,265, 9,22, 1,Monday
+2303,183736917.7695734,0.0, 1,10,7978847.390135735, 8,10
+3,266, 9,23, 1,Tuesday
+2303,104301078.67698291,0.0, 1,10,6433053.111825561, 8,10
+3,267, 9,24, 1,Wednesday
+2303,127867515.19527152,0.0, 1,10,6416787.025989379, 8,10
+3,268, 9,25, 1,Thursday
+2303,116694875.31065898,0.0, 1,10,6411560.207549351, 8,10
+3,269, 9,26, 1,Friday
+2303,83265711.86138791,0.0, 1,10,5462082.564175719, 8,10
+3,270, 9,27, 1,Saturday
+2303,62098870.896870635,0.0, 1,10,5674005.952328151, 8,10
+3,271, 9,28, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,272, 9,29, 1,Monday
+2303,205574822.4548483,0.0, 1,10,6260094.64444167, 8,10
+3,273, 9,30, 1,Tuesday
+2303,132135263.575723,0.0, 1,10,6780346.297918515, 8,10
+4,273, 9
+176,23763824614.48266,99999999999999.0, 1, 1,10,21162833.927435886, 8, 8,60
+188,12707442000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10354212000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3176860500.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2588553000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2353230000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,50061565825.81725,99999999999999.0, 1, 1,10,88285553.07881673,18, 8,10
+2160,22676961238.484528,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,5591849344.669128,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,2351258967.091286,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,20325702271.39323,99999999999999.0, 1, 1,10,-99999999999999.0,11,21,10
+2304,3605572624.136698,0.0, 1, 1,10,8041053.23049312,18, 8,10
+2388,7676204617.577205,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,5803334652.101516,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,23763824614.48266,99999999999999.0, 1, 1,10,21162833.92743589, 8, 8,60
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,23763824614.48266,99999999999999.0, 1, 1,10,21162833.92743589, 8, 8,60
+2771,11049578065.333538,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+2783,3969020851.5793943,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,27384604587.332615,99999999999999.0, 1, 1,10,68573209.91850552, 8, 8,60
+2839,2679948229.7767196,99999999999999.0, 1, 1,10,44039425.47593045,18, 8,10
+2855,10438007317.99633,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,3349935287.220902,99999999999999.0, 1, 1,10,55049281.844913065,18, 8,10
+2879,3349935287.220902,99999999999999.0, 1, 1,10,55049281.844913065,18, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,24704656357.55586,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3093,7080557213.754163,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7088072030.775412,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7088072030.775412,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,30.115059887828544,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,117517801030.85722,99999999999999.0, 1, 1,10,128590373.2070549, 8, 8,60
+3866,4524.586811587291,99999999999999.0, 1,14,10,5.231727985901607, 8, 8,60
+3878,524.3469304350807,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.3665869056205642,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.36704313313075415,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.043285499607983106,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.010049984833957108,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,10.198020490601152,99999999999999.0, 1,14,10,0.010083800839933531, 8, 8,60
+3956,0.43695586234596256,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.06710149916215716,99999999999999.0, 1,14,10,0.0000818004865490513, 8, 8,60
+3982,0.009613028971611147,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,20.575710888025082,99999999999999.0, 1,14,10,0.018329676451163294, 8, 8,60
+4008,0.0026217351740757703,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.7362055308938957,99999999999999.0,17,18,10,0.0007317763337806831, 8, 8,60
+4034,0.03320862466227846,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.45372346937881053,99999999999999.0, 1, 1,10,0.0004611749155251918, 8, 8,60
+4060,0.024906442401690654,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.28248204063909044,99999999999999.0,17,18,10,0.00027060135179420426, 8, 8,60
+4086,0.008302161384573284,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.026339062760306217,99999999999999.0, 1, 1,10,0.00002345620791448426, 8, 8,60
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.11251287212880115,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.024032572429027843,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00008108098738453922,99999999999999.0, 1,14,10,7.481165608959781e-8, 8, 8,60
+4164,0.000001136083154498038,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.000002184779311729811,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.000002184779311729811,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,49921.6169206306,99999999999999.0,28,18,20,44.45761174472167, 8, 8,60
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,4000.2398811522958,99999999999999.0, 1,14,10,3.562406878863165, 8, 8,60
+4309,0.9995437724898085,99999999999999.0, 1, 1,10,0.0008901420206372195, 8, 8,60
+4323,0.03323551477402476,99999999999999.0, 1, 1,10,0.000029597831622897575, 8, 8,60
+4337,9.761064628255177,99999999999999.0, 1,14,10,0.008692699640479466, 8, 8,60
+4351,0.05748847019054599,99999999999999.0, 1,14,10,0.000051196260161061885, 8, 8,60
+4365,20.573089152850983,99999999999999.0, 1,14,10,0.01832132984396657, 8, 8,60
+4379,0.7029969062316292,99999999999999.0,17,18,10,0.0006260527090834612, 8, 8,60
+4393,0.4288170269771205,99999999999999.0, 1, 1,10,0.00038188228007888424, 8, 8,60
+4407,0.27417987925451937,99999999999999.0,17,18,10,0.000244170429004577, 8, 8,60
+4421,0.026339062760306217,99999999999999.0, 1, 1,10,0.00002345620791448426, 8, 8,60
+4435,0.08848029969977217,99999999999999.0, 1,14,10,0.00007879598165586667, 8, 8,60
+4449,0.00007994490423004112,99999999999999.0, 1,14,10,7.119479961714595e-8, 8, 8,60
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,49921.6169206306,99999999999999.0,28,18,20,44.45761174472167, 8, 8,60
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1239.5432566163881,99999999999999.0, 1,14,10,1.4336821014028893, 8, 8,60
+4557,1239.5432566163881,99999999999999.0, 1,14,10,1.4336821014028893, 8, 8,60
+3,274,10, 1, 1,Wednesday
+2303,132220456.20913564,0.0, 1,10,6173810.23640419, 8,10
+3,275,10, 2, 1,Thursday
+2303,136081425.64607748,0.0, 1,10,6420589.882463797, 8,10
+3,276,10, 3, 1,Friday
+2303,141463150.21381757,0.0, 1,10,7735035.8554867525, 8,10
+3,277,10, 4, 1,Saturday
+2303,107256699.629041,0.0, 1,10,7881166.889955869, 8,10
+3,278,10, 5, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,279,10, 6, 1,Monday
+2303,82654415.251569,0.0, 1,10,6873713.362640294, 8,10
+3,280,10, 7, 1,Tuesday
+2303,61436529.74657146,0.0, 1,10,6872853.423154332, 8,10
+3,281,10, 8, 1,Wednesday
+2303,89317088.70864609,0.0, 1,10,7328837.182133658, 8,10
+3,282,10, 9, 1,Thursday
+2303,73139800.51817329,0.0, 1,10,6653132.327368064, 8,10
+3,283,10,10, 1,Friday
+2303,115737319.52901834,0.0, 1,10,5794107.309646617, 8,10
+3,284,10,11, 1,Saturday
+2303,169402725.20374426,0.0, 1,10,8219593.995773362, 8,10
+3,285,10,12, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,286,10,13, 1,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,287,10,14, 1,Tuesday
+2303,69956106.51397353,0.0, 1,10,7125105.729807587, 8,10
+3,288,10,15, 1,Wednesday
+2303,76268126.12473965,0.0, 1,10,7631714.318780732, 8,10
+3,289,10,16, 1,Thursday
+2303,79146279.42972359,0.0, 1,10,7479448.812947089, 8,10
+3,290,10,17, 1,Friday
+2303,83757473.8793224,0.0, 1,10,7557907.453324347, 8,10
+3,291,10,18, 1,Saturday
+2303,89852247.30501516,0.0, 1,10,7891788.345420372, 8,10
+3,292,10,19, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,293,10,20, 1,Monday
+2303,84306320.48915625,0.0, 1,10,7365705.536824016, 8,10
+3,294,10,21, 1,Tuesday
+2303,69949000.70448625,0.0, 1,10,5850824.75815403, 8,10
+3,295,10,22, 1,Wednesday
+2303,131651777.67415349,0.0, 1,10,6953191.968694352, 8,10
+3,296,10,23, 1,Thursday
+2303,89565532.9235188,0.0, 1,10,7237707.63944783, 8,10
+3,297,10,24, 1,Friday
+2303,81866090.90934843,0.0, 1,10,7551096.789478541, 8,10
+3,298,10,25, 1,Saturday
+2303,171670946.26100546,0.0, 1,10,7879319.071085787, 8,10
+3,299,10,26, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,300,10,27, 1,Monday
+2303,93635291.45750648,0.0, 1,10,7343469.136696621, 8,10
+3,301,10,28, 1,Tuesday
+2303,80352025.53698842,0.0, 1,10,7528394.894192101, 8,10
+3,302,10,29, 1,Wednesday
+2303,91738413.85283051,0.0, 1,10,7345962.769369702, 8,10
+3,303,10,30, 1,Thursday
+2303,86446632.61353552,0.0, 1,10,7121273.8587389765, 8,10
+3,304,10,31, 1,Friday
+2303,67320758.76424187,0.0, 1,10,7045355.983089903, 8,10
+4,304,10
+176,19201011616.83928,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+188,13268772000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10811592000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2457180000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,27266514619.36458,99999999999999.0, 1, 1,10,-99999999999999.0,18, 8,10
+2160,17208824160.960724,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,4515209236.923238,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,3600636112.1757402,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,13608188048.785004,99999999999999.0, 1, 1,10,-99999999999999.0,11,21,10
+2304,2556192635.095342,0.0, 1, 1,10,8219593.995773362,11, 8,10
+2388,6157014454.543724,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,3980407834.3984118,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,19201011616.83928,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,19201011616.83928,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2771,5925153035.330823,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+2783,4134396720.3952055,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,10057690458.403915,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2839,3623249069.5160933,99999999999999.0, 1, 1,10,-99999999999999.0,18, 8,10
+2855,11910917074.690275,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,4529061336.895115,99999999999999.0, 1, 1,10,-99999999999999.0,18, 8,10
+2879,4529061336.895115,99999999999999.0, 1, 1,10,-99999999999999.0,18, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,6434441388.88783,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3093,1790756314.9359272,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7381855737.795151,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7381855737.795151,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,31.369171619618957,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,31.369171619618957,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,31.369171619618957,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,31.369171619618957,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,98430675420.16913,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+3866,3830.504767854983,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3878,598.3376535876504,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.2264613732986256,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.41883667910611627,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.03832221466638792,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.011468140643355726,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,8.385489855333669,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3956,0.49861481058068435,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.057419825894754375,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3982,0.010969525832775063,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,16.62591035732641,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4008,0.0029916888634841012,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.6059115080891928,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4034,0.03789470178229785,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.3749022911347177,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4060,0.028420996559430766,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.23100919313263463,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4086,0.009473681401032965,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.02128178684373344,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.09891530595413489,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.027423814581937538,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00006589134494903553,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4164,0.0000012963961253263652,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.000002493074052903425,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.000002493074052903425,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,40336.33314395917,99999999999999.0,28,18,20,-99999999999999.0, 8, 8,60
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,3232.1671142672776,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4309,0.8076246941925116,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4323,0.026854074023032196,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4337,7.886875044753027,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4351,0.04645030006198031,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4365,16.622918668462923,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4379,0.568016806306895,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4393,0.3464812945752886,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4407,0.2215355117316052,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4421,0.02128178684373344,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4435,0.07149149137219703,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4449,0.0000645949488237094,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,40336.33314395917,99999999999999.0,28,18,20,-99999999999999.0, 8, 8,60
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1049.4543757189504,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4557,1049.4543757189504,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3,305,11, 1, 1,Saturday
+2303,224930786.46540722,0.0, 1,10,8225960.625012998, 8,10
+3,306,11, 2, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,307,11, 3, 1,Monday
+2303,202058546.51133162,0.0, 1,10,8044714.685702809, 8,10
+3,308,11, 4, 1,Tuesday
+2303,103270652.34673944,0.0, 1,10,7177106.329371932, 8,10
+3,309,11, 5, 1,Wednesday
+2303,105492494.92111218,0.0, 1,10,6854409.325566857, 8,10
+3,310,11, 6, 1,Thursday
+2303,151653779.72285458,0.0, 1,10,7257990.401297064, 8,10
+3,311,11, 7, 1,Friday
+2303,183118472.93639967,0.0, 1,10,7936911.380902661, 8,10
+3,312,11, 8, 1,Saturday
+2303,213312571.10418814,0.0, 1,10,8193644.5954568405, 8,10
+3,313,11, 9, 1,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,314,11,10, 0,Monday
+2303,82852640.34857076,0.0, 1,10,7526819.489813204, 9,10
+3,315,11,11, 0,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,316,11,12, 0,Wednesday
+2303,90848256.41248886,0.0, 1,10,7412623.073969351, 9,10
+3,317,11,13, 0,Thursday
+2303,84258025.65954736,0.0, 1,10,7450131.072933856, 9,10
+3,318,11,14, 0,Friday
+2303,66947156.24748391,0.0, 1,10,7442383.650651594, 9,10
+3,319,11,15, 0,Saturday
+2303,89868910.26143648,0.0, 1,10,7824512.933592433, 9,10
+3,320,11,16, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,321,11,17, 0,Monday
+2303,71786097.84612824,0.0, 1,10,7547778.475333093, 9,10
+3,322,11,18, 0,Tuesday
+2303,70060051.90039788,0.0, 1,10,7549501.611416295, 9,10
+3,323,11,19, 0,Wednesday
+2303,73328176.09050229,0.0, 1,10,7598748.39936803, 9,10
+3,324,11,20, 0,Thursday
+2303,80930312.73812981,0.0, 1,10,7293808.441260899, 9,10
+3,325,11,21, 0,Friday
+2303,86977564.513322,0.0, 1,10,7360674.942039372, 9,10
+3,326,11,22, 0,Saturday
+2303,105523293.51320116,0.0, 1,10,8255783.688508525, 9,10
+3,327,11,23, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,328,11,24, 0,Monday
+2303,90055237.30850044,0.0, 1,10,7529351.888861518, 9,10
+3,329,11,25, 0,Tuesday
+2303,129680351.46830362,0.0, 1,10,7387398.121618042, 9,10
+3,330,11,26, 0,Wednesday
+2303,160154750.57779193,0.0, 1,10,6959769.563709726, 9,10
+3,331,11,27, 0,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,332,11,28, 0,Friday
+2303,151139174.9098791,0.0, 1,10,7075516.562973706, 9,10
+3,333,11,29, 0,Saturday
+2303,111997439.80055322,0.0, 1,10,8283306.400497475, 9,20
+3,334,11,30, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+4,334,11
+176,16483619116.537302,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+188,11301444000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,2825361000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,9208584000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2302146000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,2825361000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2302146000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,2825361000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2302146000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,2825361000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2302146000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2092860000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,28796636814.93579,99999999999999.0, 1, 1,10,89301653.6570304, 3, 8,10
+2160,14423180565.220419,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,3124038817.9804873,99999999999999.0, 1, 1,10,-99999999999999.0,11, 9,20
+2184,7534282039.828274,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,6888898525.392129,99999999999999.0, 1, 1,10,-99999999999999.0,11,21,10
+2304,2730244743.6042666,0.0, 1, 1,10,8283306.400497475,29, 9,20
+2388,4230494598.3330126,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2472,4338402405.302635,99999999999999.0, 1, 1,10,-99999999999999.0,27, 7,30
+2546,16483619116.537302,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,16483619116.537302,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2771,5175941487.589124,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+2783,3596925146.743819,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,14373456249.715399,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2839,8275227476.673535,99999999999999.0, 1, 1,10,44513606.691861115, 3, 8,10
+2855,16837397833.128977,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,10344034345.841923,99999999999999.0, 1, 1,10,55642008.36482639, 3, 8,10
+2879,10344034345.841923,99999999999999.0, 1, 1,10,55642008.36482639, 3, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,6098228773.041871,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3093,1579016340.8455293,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,6493363487.287089,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,6493363487.287089,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,27.473470064710163,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,27.473470064710163,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,27.473470064710163,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,27.473470064710163,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,91112585572.24542,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+3866,3620.5562353265805,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3878,845.8164093345583,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.285398840467501,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,0.5920719411439328,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.03926507849561095,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3930,0.01621148440608028,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3944,7.475544799427593,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3956,0.7048471480904471,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3970,0.05538313279633025,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3982,0.015506637257989803,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,14.274615737715386,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4008,0.004229082888542679,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.5411974846379001,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4034,0.05356834958007824,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.3376223028685248,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4060,0.04017622009156414,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.2035751480945815,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4086,0.013392095813718485,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+4100,0.018269915952958394,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.10014036539034153,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.03876659314497458,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00005728585108312012,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4164,0.000001832599217555592,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.0000035242357404522314,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.0000035242357404522314,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,34627.79802287471,99999999999999.0,28,18,20,-99999999999999.0, 8, 8,60
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,2774.73982599201,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4309,0.6933268993235727,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4323,0.02305359408952942,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4337,6.770697651337151,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4351,0.03987649553834082,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4365,14.270386654826797,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4379,0.48762913505783734,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4393,0.29744608277696033,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4407,0.19018305228086388,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4421,0.018269915952958394,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4435,0.061373772245364014,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4449,0.00005545325186556515,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,34627.79802287471,99999999999999.0,28,18,20,-99999999999999.0, 8, 8,60
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,992.0429086692862,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4557,992.0429086692862,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3,335,12, 1, 0,Monday
+2303,106258250.1513006,0.0, 1,10,7798158.026585133, 9,10
+3,336,12, 2, 0,Tuesday
+2303,100686249.24377872,0.0, 1,10,7484872.57848949, 9,10
+3,337,12, 3, 0,Wednesday
+2303,107912478.50419623,0.0, 1,10,7361120.315571329, 9,10
+3,338,12, 4, 0,Thursday
+2303,86034792.4723539,0.0, 1,10,7493001.905510851, 9,10
+3,339,12, 5, 0,Friday
+2303,80426812.57571465,0.0, 1,10,7328490.061996428, 9,10
+3,340,12, 6, 0,Saturday
+2303,105029772.52746652,0.0, 1,10,8257664.251606608, 9,10
+3,341,12, 7, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,342,12, 8, 0,Monday
+2303,107784379.78887773,0.0, 1,10,7558192.600418279, 9,10
+3,343,12, 9, 0,Tuesday
+2303,126026260.42028996,0.0, 1,10,7308626.790772607, 9,10
+3,344,12,10, 0,Wednesday
+2303,119108040.34064275,0.0, 1,10,7221919.401703466, 9,10
+3,345,12,11, 0,Thursday
+2303,109018644.98452021,0.0, 1,10,7267412.315539915, 9,10
+3,346,12,12, 0,Friday
+2303,108060651.97918932,0.0, 1,10,7268026.9325390775, 9,10
+3,347,12,13, 0,Saturday
+2303,100369346.65251578,0.0, 1,10,8259434.799539039, 9,10
+3,348,12,14, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,349,12,15, 0,Monday
+2303,158442093.6627852,0.0, 1,10,7186941.968791677, 9,10
+3,350,12,16, 0,Tuesday
+2303,152481962.83207366,0.0, 1,10,7078357.374169302, 9,10
+3,351,12,17, 0,Wednesday
+2303,165071773.69692063,0.0, 1,10,7281404.329720127, 9,10
+3,352,12,18, 0,Thursday
+2303,155976662.98025575,0.0, 1,10,7041020.767839872, 9,10
+3,353,12,19, 0,Friday
+2303,168771892.41043377,0.0, 1,10,6972544.502972887, 9,10
+3,354,12,20, 0,Saturday
+2303,154213271.55902186,0.0, 1,10,8302323.6398669835, 9,40
+3,355,12,21, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,356,12,22, 0,Monday
+2303,117267564.01147467,0.0, 1,10,7526521.201633153, 9,10
+3,357,12,23, 0,Tuesday
+2303,119435032.81879835,0.0, 1,10,7203560.306591762, 9,10
+3,358,12,24, 0,Wednesday
+2303,123723340.77666602,0.0, 1,10,7266988.302688427, 9,10
+3,359,12,25, 0,Holiday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,360,12,26, 0,Friday
+2303,128589705.80213507,0.0, 1,10,7435013.601622593, 9,10
+3,361,12,27, 0,Saturday
+2303,108968516.5110623,0.0, 1,10,8259415.4594277255, 9,10
+3,362,12,28, 0,Sunday
+2303,0.0,0.0, 1,10,0.0, 1,10
+3,363,12,29, 0,Monday
+2303,187222303.17810702,0.0, 1,10,6964180.278963683, 9,10
+3,364,12,30, 0,Tuesday
+2303,172866887.9059826,0.0, 1,10,7039163.82412741, 9,10
+3,365,12,31, 0,Wednesday
+2303,111440594.15944466,0.0, 1,10,7535806.749069905, 9,10
+4,365,12
+176,17414708676.526352,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+188,13268772000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+200,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+224,10811592000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+236,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+297,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+309,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+334,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+346,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+371,3317193000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+383,2702898000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+456,2457180000.0,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 9,10
+2148,34928235158.60127,99999999999999.0, 1, 1,10,-99999999999999.0, 3, 8,10
+2160,18056655031.751694,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2172,2930508384.563511,99999999999999.0, 1, 1,10,8366936.519470568,27, 9,20
+2184,15809369911.401474,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 9,20
+2234,2247285120.3502183,99999999999999.0, 1, 1,10,-99999999999999.0,11,21,10
+2304,3281187281.9460096,0.0, 1, 1,10,8302323.6398669835,20, 9,40
+2388,5418712338.868332,99999999999999.0, 1, 1,10,13103353.660609119,29, 7,30
+2472,6426247026.37386,99999999999999.0, 1, 1,10,13038491.669078544,29, 7,30
+2546,17414708676.526352,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2595,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+2644,17414708676.526352,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2771,4138844602.92274,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+2783,4134396720.3952055,99999999999999.0, 1, 1,10,-99999999999999.0, 2, 7,30
+2827,16871580126.84956,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+2839,16855296995.327728,99999999999999.0, 1, 1,10,-99999999999999.0, 3, 8,10
+2855,28456697914.47988,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+2867,21069121244.159637,99999999999999.0, 1, 1,10,-99999999999999.0, 3, 8,10
+2879,21069121244.159637,99999999999999.0, 1, 1,10,-99999999999999.0, 3, 8,10
+2907,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3069,16283131.521833304,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3093,4447882.527534014,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 6,10
+3205,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+3272,7387576670.3202915,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3284,7387576670.3202915,99999999999999.0, 1, 1,10,-99999999999999.0, 2,11,10
+3350,31.369171619619195,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3362,31.369171619619195,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3374,31.369171619619195,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3400,31.369171619619195,99999999999999.0, 1, 1,10,-99999999999999.0, 2,13,10
+3841,106927375210.90741,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+3866,4360.97794246492,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3878,1429.5048611481711,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3892,1.7331441591618861,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3904,1.0006541711345636,99999999999999.0, 1, 1,10,-99999999999999.0,27, 9,10
+3918,0.0517546422281902,99999999999999.0, 1, 1,10,0.00007292633828038593,15, 9,10
+3930,0.02739884862620707,99999999999999.0, 1, 1,10,0.00005928929180754294,15, 9,10
+3944,8.34439986257619,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3956,1.1912542880959598,99999999999999.0, 1, 1,10,0.0025777952959801275,15, 9,10
+3970,0.06833654356530493,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+3982,0.0262075943381111,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+3996,15.083607648850155,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4008,0.007147525728575744,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4022,0.605708500611536,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4034,0.09053526898189691,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4048,0.3821489279271622,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4060,0.06790138059467792,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4074,0.22355951577097138,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4086,0.0226338314738232,99999999999999.0, 1, 1,10,0.00004897811062362243,15, 9,10
+4100,0.019301905826384483,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4112,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4126,0.13035950154005366,99999999999999.0, 1,14,10,-99999999999999.0, 4, 9,10
+4138,0.06551898584527753,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4152,0.00006168282574888487,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4164,0.00000309725545770991,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4178,0.000005956271440479804,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4190,0.000005956271440479804,99999999999999.0, 1, 1,10,-99999999999999.0, 4, 9,10
+4204,36583.77510512573,99999999999999.0,28,18,20,-99999999999999.0, 8, 8,60
+4216,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4230,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4242,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4256,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4268,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4295,2931.4730813166607,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4309,0.7324899880273207,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4323,0.02435579360198069,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4337,7.153145574480248,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4351,0.04212894922719494,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4365,15.076460123121558,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4379,0.515173231629648,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4393,0.31424754733248506,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4407,0.2009256842971498,99999999999999.0,17,18,10,-99999999999999.0, 8, 8,60
+4421,0.019301905826384483,99999999999999.0, 1, 1,10,-99999999999999.0, 8, 8,60
+4435,0.0648405156947729,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4449,0.000058585570291175444,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4463,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4477,36583.77510512573,99999999999999.0,28,18,20,-99999999999999.0, 8, 8,60
+4491,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4505,0.0,99999999999999.0, 1, 1,10,-99999999999999.0, 1, 1,10
+4545,1195.079944074145,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+4557,1195.079944074145,99999999999999.0, 1,14,10,-99999999999999.0, 8, 8,60
+6,2014
+177,243971227465.55936,445500.0, 1, 1, 1,10,21162833.927435886, 9, 8, 8,60
+189,152655030000.0,445500.0, 1, 1, 1,10,8019000.0, 1, 2, 9,10
+201,38163757500.0,111375.0, 1, 1, 1,10,2004750.0, 1, 2, 9,10
+225,124385580000.0,363000.0, 1, 1, 1,10,6534000.0, 1, 2, 9,10
+237,31096395000.0,90750.0, 1, 1, 1,10,1633500.0, 1, 2, 9,10
+298,38163757500.0,111375.0, 1, 1, 1,10,2004750.0, 1, 2, 9,10
+310,31096395000.0,90750.0, 1, 1, 1,10,1633500.0, 1, 2, 9,10
+335,38163757500.0,111375.0, 1, 1, 1,10,2004750.0, 1, 2, 9,10
+347,31096395000.0,90750.0, 1, 1, 1,10,1633500.0, 1, 2, 9,10
+372,38163757500.0,111375.0, 1, 1, 1,10,2004750.0, 1, 2, 9,10
+384,31096395000.0,90750.0, 1, 1, 1,10,1633500.0, 1, 2, 9,10
+457,28269450000.0,82500.0, 1, 1, 1,10,1485000.0, 1, 2, 9,10
+2149,447250068406.33075,0.0, 1, 1, 1,10,89301653.6570304,11, 3, 8,10
+2161,223766064478.40015,0.0, 1, 1, 1,10,42604989.91342598, 2, 1, 9,20
+2173,48413287957.61374,0.0, 1, 1, 1,10,8366936.519470568,12,27, 9,20
+2185,76753330629.68228,0.0, 1, 1, 1,10,42604989.91342598, 2, 1, 9,20
+2235,147012733848.71808,0.0, 1, 1, 1,10,30349930.902125664, 8,11,21,10
+2305,38157801972.31219,0.0, 1, 1, 1,10,8302323.6398669835,12,20, 9,40
+2389,72172769006.3219,0.0, 1, 1, 1,10,13103353.660609119,12,29, 7,30
+2473,65022205542.15266,0.0, 1, 1, 1,10,13038491.669078544,12,29, 7,30
+2547,243971227465.55936,445500.0, 1, 1, 1,10,21162833.92743589, 9, 8, 8,60
+2596,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+2645,243971227465.55936,445500.0, 1, 1, 1,10,21162833.92743589, 9, 8, 8,60
+2772,91234119358.94858,0.0, 1, 1, 1,10,14855460.270801073, 8, 4, 6,10
+2784,47959001956.56079,0.0, 1, 1, 1,10,1722665.3001645945, 1, 2, 7,30
+2828,223484003927.93103,0.0, 1, 1, 1,10,68573209.91850552, 9, 8, 8,60
+2840,78797317133.41309,0.0, 1, 1, 1,10,44513606.691861115,11, 3, 8,10
+2856,183994674137.0909,0.0, 1, 1, 1,10,61578407.52902697, 1,27, 9,10
+2868,98496646416.7666,0.0, 1, 1, 1,10,55642008.36482639,11, 3, 8,10
+2880,98496646416.7666,0.0, 1, 1, 1,10,55642008.36482639,11, 3, 8,10
+2908,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+3070,144686686794.51776,0.0, 1, 1, 1,10,49719951.25607379, 8, 4, 6,10
+3094,43275117402.32961,0.0, 1, 1, 1,10,13132794.970636478, 8, 4, 6,10
+3206,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+3273,85498027720.32518,0.0, 1, 1, 1,10,9375000.0, 1, 2,11,10
+3285,85498027720.32518,0.0, 1, 1, 1,10,9375000.0, 1, 2,11,10
+3351,363.03258970371064,0.0015598404624260868, 1, 1, 1,10,0.02222772658957174, 1, 2,13,10
+3363,363.03258970371064,0.0015598404624260868, 1, 1, 1,10,0.02222772658957174, 1, 2,13,10
+3375,363.03258970371064,0.0015598404624260868, 1, 1, 1,10,0.02222772658957174, 1, 2,13,10
+3401,363.03258970371064,0.0015598404624260868, 1, 1, 1,10,0.02222772658957174, 1, 2,13,10
+3842,1283329025096.6753,2007423.0, 1, 1, 1,10,128590373.2070549, 9, 8, 8,60
+3867,50311.30983864158,0.074992426344, 1, 1,14,10,5.231727985901607, 9, 8, 8,60
+3879,9242.860218525742,0.0, 1, 1, 1,10,3.093353739392077, 1,27, 9,10
+3893,16.731819982855292,0.000018738429435, 1, 1, 1,10,0.0025754775712609015, 1,27, 9,10
+3905,6.470007120824106,0.0, 1, 1, 1,10,0.0021653492801914573, 1,27, 9,10
+3919,0.5183671595444801,6.23065608e-7, 1, 1, 1,10,0.00007292633828038593,12,15, 9,10
+3931,0.17715485612071577,0.0, 1, 1, 1,10,0.00005928929180754294,12,15, 9,10
+3945,107.91432304095743,0.00018299050604999998, 1, 1,14,10,0.010083800839933531, 9, 8, 8,60
+3957,7.702385048727054,0.0, 1, 1, 1,10,0.0025777952959801275,12,15, 9,10
+3971,0.7596576617363217,0.0000010777353345, 1, 1,14,10,0.0000818004865490513, 9, 8, 8,60
+3983,0.16945247107198969,0.0, 1, 1, 1,10,0.00005671149651156281, 2, 4, 9,10
+3997,211.25976662370363,0.00038568333869999996, 1, 1,14,10,0.018329676451163294, 9, 8, 8,60
+4009,0.046214310292363184,0.0, 1, 1, 1,10,0.000015466771775880763, 2, 4, 9,10
+4023,7.802696327899196,0.000013179070574999999, 5,17,18,10,0.0007317763337806831, 9, 8, 8,60
+4035,0.585380895713909,0.0, 1, 1, 1,10,0.0001959123193376746, 2, 4, 9,10
+4049,4.841483812853475,0.000008039025225, 1, 1, 1,10,0.0004611749155251918, 9, 8, 8,60
+4061,0.4390352117987263,0.0, 1, 1, 1,10,0.00014693408555723717, 2, 4, 9,10
+4075,2.96121214705346,0.0000051400453499999995, 5,17,18,10,0.00027060135179420426, 9, 8, 8,60
+4087,0.14634531592581324,0.0, 1, 1, 1,10,0.00004897811062362243,12,15, 9,10
+4101,0.27040990144352556,4.93777944e-7, 1, 1, 1,10,0.00002345620791448426, 9, 8, 8,60
+4113,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4127,1.3320138843552982,0.0000016587386145, 1, 1,14,10,0.00017808357865365057, 2, 4, 9,10
+4139,0.42363117767997766,0.0, 1, 1, 1,10,0.00014177874127890703, 2, 4, 9,10
+4153,0.000840780261406849,1.4987257064999999e-9, 1, 1,14,10,7.481165608959781e-8, 9, 8, 8,60
+4165,0.00002002616432775531,0.0, 1, 1, 1,10,6.702255453866825e-9, 2, 4, 9,10
+4179,0.000038511925243633965,0.0, 1, 1, 1,10,1.2888976479900639e-8, 2, 4, 9,10
+4191,0.000038511925243633965,0.0, 1, 1, 1,10,1.2888976479900639e-8, 2, 4, 9,10
+4205,512520.1163861495,0.9358796699999999, 6,28,18,20,44.45761174472167, 9, 8, 8,60
+4217,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4231,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4243,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4257,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4269,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4296,41068.44962011417,0.074992426344, 1, 1,14,10,3.562406878863165, 9, 8, 8,60
+4310,10.261812862027018,0.000018738429435, 1, 1, 1,10,0.0008901420206372195, 9, 8, 8,60
+4324,0.3412123034237617,6.23065608e-7, 1, 1, 1,10,0.000029597831622897575, 9, 8, 8,60
+4338,100.2119379922375,0.00018299050604999998, 1, 1,14,10,0.008692699640479466, 9, 8, 8,60
+4352,0.5902051906642083,0.0000010777353345, 1, 1,14,10,0.000051196260161061885, 9, 8, 8,60
+4366,211.2135523134063,0.00038568333869999996, 1, 1,14,10,0.01832132984396657, 9, 8, 8,60
+4380,7.217315432185336,0.000013179070574999999, 5,17,18,10,0.0006260527090834612, 9, 8, 8,60
+4394,4.402448601054655,0.000008039025225, 1, 1, 1,10,0.00038188228007888424, 9, 8, 8,60
+4408,2.814866831127711,0.0000051400453499999995, 5,17,18,10,0.000244170429004577, 9, 8, 8,60
+4422,0.27040990144352556,4.93777944e-7, 1, 1, 1,10,0.00002345620791448426, 9, 8, 8,60
+4436,0.9083827066754578,0.0000016587386145, 1, 1,14,10,0.00007879598165586667, 9, 8, 8,60
+4450,0.0008207540970790743,1.4987257064999999e-9, 1, 1,14,10,7.119479961714595e-8, 9, 8, 8,60
+4464,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4478,512520.1163861495,0.9358796699999999, 6,28,18,20,44.45761174472167, 9, 8, 8,60
+4492,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4506,0.0,0.0, 1, 1, 1,10,0.0, 1, 1, 1,10
+4546,13784.470790674333,0.02054134552354335, 1, 1,14,10,1.4336821014028893, 9, 8, 8,60
+4558,13784.470790674333,0.02054134552354335, 1, 1,14,10,1.4336821014028893, 9, 8, 8,60
+End of Data
+ Number of Records Written=        1548
