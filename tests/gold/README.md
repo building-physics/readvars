@@ -3,13 +3,19 @@
 These files are authoritative outputs from the legacy Fortran ReadVarsESO
 program. The initial gold set was generated with EnergyPlus 26.1.0.
 
-Each directory name matches an `.rvi`/`.eso` fixture pair in `tests/data`.
-Each case contains two invocation modes:
+Each directory name matches an `.rvi`/`.eso` or `.mvi`/`.mtr` fixture pair in
+`tests/data`. Each case contains two invocation modes:
 
 - `with-rvi` passes the included RVI file to ReadVarsESO and retains the output
   name specified by that file.
 - `without-rvi` invokes ReadVarsESO without arguments, using `eplusout.eso` and
   `eplusout.csv` defaults.
+- `with-mvi` passes the included MVI file and retains its requested output name.
+- `without-mvi` exercises the MTR contents through ReadVarsESO's no-argument
+  `eplusout.eso` and `eplusout.csv` defaults.
+
+An MVI/MTR case with a same-stem ESO but no RVI also has a `without-rvi` mode
+that exercises the actual ESO content using the no-argument defaults.
 
 Regenerate all gold files deliberately with:
 

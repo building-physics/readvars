@@ -6,14 +6,15 @@ import argparse
 from pathlib import Path
 import shutil
 import subprocess
-import tempfile
+from uuid import uuid4
 
 
 PROJECT_ROOT = Path(__file__).parents[1]
 DATA_DIR = PROJECT_ROOT / "tests" / "data"
 GOLD_DIR = PROJECT_ROOT / "tests" / "gold"
+TEMP_DIR = PROJECT_ROOT / ".regression"
 DEFAULT_EXECUTABLE = Path(r"C:\EnergyPlus-26.1.0\PostProcess\ReadVarsESO.exe")
-REGRESSION_MODES = ("with-rvi", "without-rvi")
+CONFIGURATION_DATA_SUFFIXES = {".rvi": ".eso", ".mvi": ".mtr"}
 
 
 def configuration_file_names(configuration: Path) -> tuple[str, str]:
@@ -32,22 +33,48 @@ def configuration_file_names(configuration: Path) -> tuple[str, str]:
 
 def generate_case(executable: Path, configuration: Path, mode: str) -> Path:
     """Generate one gold output for a fixture and invocation mode."""
-    source_data = configuration.with_suffix(".eso")
+    data_suffix = CONFIGURATION_DATA_SUFFIXES[configuration.suffix.lower()]
+    source_data = configuration.with_suffix(data_suffix)
     if not source_data.is_file():
-        raise FileNotFoundError(f"Missing ESO pair for {configuration}: {source_data}")
+        raise FileNotFoundError(f"Missing data pair for {configuration}: {source_data}")
 
-    if mode == "with-rvi":
+    expected_with_mode = f"with-{configuration.suffix[1:].lower()}"
+    expected_without_mode = f"without-{configuration.suffix[1:].lower()}"
+    if mode == expected_with_mode:
         input_name, output_name = configuration_file_names(configuration)
         arguments = [configuration.name]
-    elif mode == "without-rvi":
+    elif mode == expected_without_mode:
         input_name, output_name = "eplusout.eso", "eplusout.csv"
         arguments = []
     else:
         raise ValueError(f"Unknown regression mode: {mode}")
 
-    with tempfile.TemporaryDirectory(prefix="readvars-gold-") as temporary:
-        working_directory = Path(temporary)
-        if mode == "with-rvi":
+    return generate_output(
+        executable,
+        source_data,
+        configuration if mode == expected_with_mode else None,
+        mode,
+        input_name,
+        output_name,
+        arguments,
+    )
+
+
+def generate_output(
+    executable: Path,
+    source_data: Path,
+    configuration: Path | None,
+    mode: str,
+    input_name: str,
+    output_name: str,
+    arguments: list[str],
+) -> Path:
+    """Run ReadVarsESO once and save its output as a gold file."""
+    TEMP_DIR.mkdir(exist_ok=True)
+    working_directory = TEMP_DIR / f"readvars-gold-{uuid4().hex}"
+    working_directory.mkdir()
+    try:
+        if configuration is not None:
             shutil.copy2(configuration, working_directory / configuration.name)
         shutil.copy2(source_data, working_directory / input_name)
         result = subprocess.run(
@@ -58,14 +85,16 @@ def generate_case(executable: Path, configuration: Path, mode: str) -> Path:
         )
         if result.returncode != 0:
             raise RuntimeError(
-                f"ReadVarsESO failed for {configuration.name} with exit code "
+                f"ReadVarsESO failed for {source_data.name} with exit code "
                 f"{result.returncode}\nstdout:\n{result.stdout}\nstderr:\n{result.stderr}"
             )
 
-        destination = GOLD_DIR / configuration.stem / mode / output_name
+        destination = GOLD_DIR / source_data.stem / mode / output_name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(working_directory / output_name, destination)
         return destination
+    finally:
+        shutil.rmtree(working_directory)
 
 
 def main() -> int:
@@ -80,7 +109,10 @@ def main() -> int:
     parser.add_argument(
         "cases",
         nargs="*",
-        help="Optional fixture stems to regenerate; by default all RVI/ESO pairs are used.",
+        help=(
+            "Optional fixture stems to regenerate; by default all RVI/ESO and "
+            "MVI/MTR pairs and associated standalone ESO modes are used."
+        ),
     )
     args = parser.parse_args()
 
@@ -89,20 +121,45 @@ def main() -> int:
         parser.error(f"legacy executable does not exist: {executable}")
 
     requested_cases = set(args.cases)
-    configurations = sorted(DATA_DIR.glob("*.rvi"))
+    configurations = sorted(
+        configuration
+        for configuration_suffix, data_suffix in CONFIGURATION_DATA_SUFFIXES.items()
+        for configuration in DATA_DIR.glob(f"*{configuration_suffix}")
+        if configuration.with_suffix(data_suffix).is_file()
+    )
+    standalone_eso_files = sorted(
+        source_data
+        for source_data in DATA_DIR.glob("*.eso")
+        if not source_data.with_suffix(".rvi").is_file()
+        and source_data.with_suffix(".mvi").is_file()
+    )
     if requested_cases:
         configurations = [item for item in configurations if item.stem in requested_cases]
-        missing = requested_cases.difference(item.stem for item in configurations)
+        standalone_eso_files = [item for item in standalone_eso_files if item.stem in requested_cases]
+        found_cases = {item.stem for item in configurations + standalone_eso_files}
+        missing = requested_cases.difference(found_cases)
         if missing:
             parser.error(f"unknown regression case(s): {', '.join(sorted(missing))}")
 
-    if not configurations:
-        parser.error("no RVI/ESO regression cases found")
+    if not configurations and not standalone_eso_files:
+        parser.error("no regression cases found")
 
     for configuration in configurations:
-        for mode in REGRESSION_MODES:
+        configuration_kind = configuration.suffix[1:].lower()
+        for mode in (f"with-{configuration_kind}", f"without-{configuration_kind}"):
             destination = generate_case(executable, configuration, mode)
             print(f"Generated {destination.relative_to(PROJECT_ROOT)}")
+    for source_data in standalone_eso_files:
+        destination = generate_output(
+            executable,
+            source_data,
+            None,
+            "without-rvi",
+            "eplusout.eso",
+            "eplusout.csv",
+            [],
+        )
+        print(f"Generated {destination.relative_to(PROJECT_ROOT)}")
     return 0
 
 

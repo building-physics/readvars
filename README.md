@@ -103,9 +103,13 @@ time aggregation behavior.
 ### Gold-file regression tests
 
 Regression cases are pairs of files under `tests/data` with the same stem and
-`.rvi`/`.eso` extensions. Pytest runs the Python port in an isolated directory
-both with the RVI argument and without arguments. It compares each output
-byte-for-byte with the corresponding stored output under `tests/gold`:
+either `.rvi`/`.eso` or `.mvi`/`.mtr` extensions. Pytest runs the Python port
+in an isolated directory both with the configuration-file argument and without
+arguments. It compares each output byte-for-byte with the corresponding stored
+output under `tests/gold`:
+
+When an MVI/MTR case also has a same-stem ESO but no RVI, that ESO is included
+as an additional `without-rvi` regression using the no-argument defaults.
 
 ```console
 hatch run test:run -m regression

@@ -62,8 +62,8 @@ def test_read_command_converts_everything_by_default(tmp_path: Path) -> None:
     assert result.stdout == "Wrote eplusout.csv\n"
     assert (tmp_path / "eplusout.csv").read_text(encoding="utf-8").splitlines() == [
         "Date/Time,Environment:Outdoor Dry Bulb [C](Hourly),ZONE ONE:Zone Mean Air Temperature [C](Hourly),ZONE ONE:Zone Air System Sensible Heating Rate [W](TimeStep)",
-        " 01/01  01:00:00,-5.0,20.0,",
-        " 01/01  02:00:00,-4.0,21.0,",
+        " 01/01  01:00:00,-5.0,20.0",
+        " 01/01  02:00:00,-4.0,21.0",
     ]
     assert not (tmp_path / "readvars.audit").exists()
 

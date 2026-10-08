@@ -152,6 +152,26 @@ def test_monthly_records_are_flushed_with_month_label() -> None:
     assert output.getvalue().splitlines() == ["January,12.3", "February,45.6"]
 
 
+def test_rows_preserve_interior_but_omit_trailing_empty_fields() -> None:
+    output = StringIO()
+    process_data_records(
+        ["ignored", "4,2,1", "7,12.3", "9,45.6", "End of Data"],
+        1,
+        [
+            SelectedVariable(7, "First", True),
+            SelectedVariable(8, "Interior missing", True),
+            SelectedVariable(9, "Last found", True),
+            SelectedVariable(10, "Trailing missing", True),
+        ],
+        output,
+        "output.csv",
+        ",",
+        None,
+        legacy_spacing=False,
+    )
+    assert output.getvalue() == "January,12.3,,45.6\n"
+
+
 def test_public_api_lists_and_converts(tmp_path: Path) -> None:
     records = list_variables(TEST_ESO, frequency="hourly", search="temperature")
     assert [record.number for record in records] == [8]

@@ -1834,8 +1834,9 @@ def flush_row(
     if not any(out_found):
         return
 
+    last_found_index = max(index for index, found in enumerate(out_found) if found)
     row_parts = [label.rstrip()]
-    for index, found in enumerate(out_found):
+    for index, found in enumerate(out_found[: last_found_index + 1]):
         row_parts.append(out_data[index].rstrip() if found else "")
     output.write(separator.join(row_parts))
     output.write(" \n" if legacy_spacing else "\n")

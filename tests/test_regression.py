@@ -12,17 +12,44 @@ import pytest
 DATA_DIR = Path(__file__).parent / "data"
 GOLD_DIR = Path(__file__).parent / "gold"
 SOURCE_ROOT = Path(__file__).parents[1] / "src"
+CONFIGURATION_DATA_SUFFIXES = {".rvi": ".eso", ".mvi": ".mtr"}
 REGRESSION_CASES = sorted(
-    configuration.stem
-    for configuration in DATA_DIR.glob("*.rvi")
-    if configuration.with_suffix(".eso").is_file()
+    (
+        configuration.stem,
+        configuration.suffix,
+        data_suffix,
+    )
+    for configuration_suffix, data_suffix in CONFIGURATION_DATA_SUFFIXES.items()
+    for configuration in DATA_DIR.glob(f"*{configuration_suffix}")
+    if configuration.with_suffix(data_suffix).is_file()
 )
-REGRESSION_MODES = ("with-rvi", "without-rvi")
-REGRESSION_PARAMETERS = [
-    pytest.param(case_name, mode, id=f"{case_name}-{mode}")
-    for case_name in REGRESSION_CASES
-    for mode in REGRESSION_MODES
+CONFIGURED_REGRESSION_PARAMETERS = [
+    pytest.param(
+        case_name,
+        configuration_suffix,
+        data_suffix,
+        mode,
+        id=f"{case_name}-{mode}",
+    )
+    for case_name, configuration_suffix, data_suffix in REGRESSION_CASES
+    for mode in (
+        f"with-{configuration_suffix[1:]}",
+        f"without-{configuration_suffix[1:]}",
+    )
 ]
+UNCONFIGURED_ESO_PARAMETERS = [
+    pytest.param(
+        source_data.stem,
+        None,
+        source_data.suffix,
+        "without-rvi",
+        id=f"{source_data.stem}-without-rvi",
+    )
+    for source_data in sorted(DATA_DIR.glob("*.eso"))
+    if not source_data.with_suffix(".rvi").is_file()
+    and source_data.with_suffix(".mvi").is_file()
+]
+REGRESSION_PARAMETERS = CONFIGURED_REGRESSION_PARAMETERS + UNCONFIGURED_ESO_PARAMETERS
 
 
 def configuration_file_names(configuration: Path) -> tuple[str, str]:
@@ -71,15 +98,26 @@ def first_byte_difference(expected: bytes, actual: bytes) -> str:
 
 
 @pytest.mark.regression
-@pytest.mark.parametrize(("case_name", "mode"), REGRESSION_PARAMETERS)
+@pytest.mark.parametrize(
+    ("case_name", "configuration_suffix", "data_suffix", "mode"),
+    REGRESSION_PARAMETERS,
+)
 def test_legacy_output_is_byte_exact(
     case_name: str,
+    configuration_suffix: str | None,
+    data_suffix: str,
     mode: str,
     tmp_path: Path,
 ) -> None:
-    configuration = DATA_DIR / f"{case_name}.rvi"
-    source_data = DATA_DIR / f"{case_name}.eso"
-    if mode == "with-rvi":
+    configuration = (
+        DATA_DIR / f"{case_name}{configuration_suffix}"
+        if configuration_suffix is not None
+        else None
+    )
+    source_data = DATA_DIR / f"{case_name}{data_suffix}"
+    with_configuration = mode.startswith("with-")
+    if with_configuration:
+        assert configuration is not None
         input_name, output_name = configuration_file_names(configuration)
         arguments = [configuration.name]
     else:
@@ -88,7 +126,8 @@ def test_legacy_output_is_byte_exact(
 
     python_directory = tmp_path / "python"
     python_directory.mkdir()
-    if mode == "with-rvi":
+    if with_configuration:
+        assert configuration is not None
         shutil.copy2(configuration, python_directory / configuration.name)
     shutil.copy2(source_data, python_directory / input_name)
 
