@@ -33,13 +33,12 @@ test = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/Jason W. DeGraw/readvars#readme"
-Issues = "https://github.com/Jason W. DeGraw/readvars/issues"
-Source = "https://github.com/Jason W. DeGraw/readvars"
+Documentation = "https://github.com/building-physics/readvars#readme"
+Issues = "https://github.com/building-physics/readvars/issues"
+Source = "https://github.com/building-physics/readvars"
 
 [project.scripts]
 readvars = "readvars.cli:readvars"
-ReadVarsESO = "readvars.cli:readvars"
 
 [tool.hatch.version]
 path = "src/readvars/__about__.py"
